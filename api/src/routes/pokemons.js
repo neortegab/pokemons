@@ -11,4 +11,14 @@ router.get("/", async(req, res) => {
     }
 });
 
+router.get("/:id", async(req, res) => {
+    const { id } = req.params;
+    try {
+        const pokemon = await controller.getPokemonById(id);
+        res.json(pokemon);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+});
+
 module.exports = router;
