@@ -10,3 +10,7 @@ async function getPokemons() {
         throw new Error("There was an error requesting the pokemons:" + error.message);
     }
 }
+
+module.exports = {
+    getPokemons
+}
