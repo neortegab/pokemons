@@ -1,4 +1,5 @@
 const { Pokemon, Type } = require ("../../../db.js");
+const { Op } = require("sequelize");
 const axios = require("axios");
 
 async function verifyPokemon(pokemon){
@@ -29,7 +30,9 @@ async function verifyPokemon(pokemon){
 async function checkPokemonIsNotInDB(pokemon){
     const pokemonsInDb = await Pokemon.findOne({
         where: {
-            name: pokemon.name.toLowerCase()
+            name: {
+                [Op.iLike]: pokemon.name.toLowerCase()
+            }
         }
     });
     if(pokemonsInDb) throw new Error(`Pokemon with name ${pokemon.name} already exists`);
@@ -76,10 +79,15 @@ async function createPokemon(pokemon){
             speed: speed,
             height: height,
             weight: weight,
-            types: types
-        }, {
-            include: [ Type ]
         });
+        for(let i = 0; i < types.length; ++i){
+            const type = await Type.findOne({
+                where: {
+                    name: types[i].name.toLowerCase()
+                }
+            });
+            await newPokemon.addType(type);
+        }
         return newPokemon;
 
     } catch (error) {
