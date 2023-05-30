@@ -24,8 +24,8 @@ async function getPokemonByName(name){
         if(pokemonFromDb.length !== 0) return pokemonFromDb;
         else{
             const apiRequest = await axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=1281`);
-            const pokemonsFromApi = apiRequest.data;
-            return filterPokemonByName(pokemonsFromApi.results, name);
+            const pokemonsFromApi = apiRequest.data.results;
+            return filterPokemonByName(pokemonsFromApi, name);
         }
     } catch (error) {
         throw new Error("Error getting pokemon by id: " + error.message);
