@@ -13,7 +13,6 @@ router.get("/", async(req, res) => {
         }
     }
     else{
-        
         try {
             const pokemons = await controller.getPokemonByName(name);
             res.json(pokemons);
