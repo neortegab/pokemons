@@ -1,0 +1,27 @@
+.App {
+    border: 2px solid green;
+}
+  
+.login {
+    display: flex;
+    margin: 20vh 5vw 15vh 50vw;
+    padding: 5vw;
+    border: 2px solid red;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+  
+.login > a {
+    margin-top: 4vh;
+    color: black;
+}
+
+.login>a:hover {
+    cursor: pointer;
+}
+
+ 
+.pokeball-landing{
+    transform: rotate(205deg);
+}
