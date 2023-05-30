@@ -2,6 +2,16 @@ const express = require("express");
 const router = express.Router();
 const controller = require("../Controllers/Pokemon/pokecontroller.js");
 
+router.post("/", async(req, res) => {
+    const { body } = req;
+    try {
+        const pokemon = await controller.createPokemon(body);
+        res.json(pokemon);
+    } catch (error) {
+        res.status(402).json({ message: error.message });
+    }
+});
+
 router.get("/", async(req, res) => {
     const { name } = req.query;
     if(!name){
