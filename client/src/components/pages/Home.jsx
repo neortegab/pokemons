@@ -1,5 +1,6 @@
 import React from 'react'
 import NavBar from './HomeComponents/NavBar'
+import SideBar from './HomeComponents/SideBar';
 
 export default function Home() {
 
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <>
       <NavBar searchPokemon={searchPokemon}/>
+      <SideBar/>
     </>
   )
 }
