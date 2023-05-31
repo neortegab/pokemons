@@ -1,26 +1,51 @@
-.App {
-    border: 2px solid green;
-}
-  
-.login {
+.landing-container{
     display: flex;
-    margin: 20vh 5vw 15vh 50vw;
-    padding: 5vw;
-    border: 2px solid red;
+    align-items: flex-end;
+}
+
+.login {
+    background-color: rgb(252 255 231 / 30%);
+    display: flex;
+    margin: 12vh 10vw;
+    padding: 26vh 7vw;
+    border: 1px solid #FCFFE7;
+    border-radius: 20px;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
 }
   
 .login > a {
-    margin-top: 4vh;
-    color: black;
+    margin-top: 3vh;
+    color: #FCFFE7;
+    background-color: #2B3467;
+    padding: 1vh 2vw 1vh 2vw;
+    border-radius: 15px;
 }
 
 .login>a:hover {
     cursor: pointer;
 }
 
+.pokemons-landing{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pokemons-pics > img{
+    width: 18vw;
+    max-height: 20vw;
+}
+
+#pokemon-logo > img{
+    width: 25vw;
+    max-height: 25vw;
+}
+
+#squirtle{
+    transform: rotateY(180deg);
+}
  
 .pokeball-landing{
     transform: rotate(205deg);
