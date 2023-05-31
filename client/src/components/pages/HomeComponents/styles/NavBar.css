@@ -1,0 +1,26 @@
+.navbar-container{
+    border: 2px solid red;
+    display: flex;
+    gap: 0.5vw;
+}
+
+.navbar-container > img{
+    max-width: 2.2vw;
+    height: auto;
+}
+
+.navbar-container > input{
+    border-radius: 15px;
+    border: 1px solid #2B3467;
+    width: 18vw;
+    max-height: 4vh;
+}
+
+.navbar-container > button{
+    border-radius: 15px;
+    border: 1px solid #2B3467;
+    background-color: #EB455F;
+    color: white;
+    font-weight: bold;
+    padding: 0.5vh 1vw;
+}

@@ -1,7 +1,15 @@
 import React from 'react'
+import NavBar from './HomeComponents/NavBar'
 
 export default function Home() {
+
+  function searchPokemon(){
+    console.log("Searching pokemon");
+  }
+
   return (
-    <div>Home</div>
+    <>
+      <NavBar searchPokemon={searchPokemon}/>
+    </>
   )
 }
