@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './styles/NavBar.css'
 import pokeballIcon from '../../../images/pokeball.ico'
 
@@ -17,7 +18,9 @@ export default function NavBar(props) {
 
   return (
     <div className='navbar-container'>
-        <img src={pokeballIcon} alt='navbar icon pokeball'/>
+        <Link to='/home'>
+            <img src={pokeballIcon} alt='navbar icon pokeball'/>
+        </Link>
         <input type="text" value={name} onChange={checkErrors}/>
         <button onClick={searchPokemon()}>Search</button>
     </div>
