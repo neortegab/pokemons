@@ -1,6 +1,9 @@
 import React from 'react'
 import NavBar from './HomeComponents/NavBar'
 import SideBar from './HomeComponents/SideBar';
+import Cards from './HomeComponents/Cards';
+import Pages from './HomeComponents/Pages';
+import './HomeComponents/styles/Home.css'
 
 export default function Home() {
 
@@ -9,9 +12,15 @@ export default function Home() {
   }
 
   return (
-    <>
-      <NavBar searchPokemon={searchPokemon}/>
-      <SideBar/>
-    </>
+    <div className='home-container'>
+      <div>
+        <NavBar searchPokemon={searchPokemon}/>
+      </div>
+      <div>
+        <SideBar/>
+        <Cards/>
+        <Pages />
+      </div>
+    </div>
   )
 }

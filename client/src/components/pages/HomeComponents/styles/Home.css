@@ -1,0 +1,6 @@
+.home-container{
+    border: 2px solid green;
+    display: grid;
+    grid-template-rows: 20% 80%;
+    width: 100%;
+}
