@@ -1,7 +1,8 @@
 import React from 'react'
+import './styles/Pages.css'
 
 export default function Pages() {
   return (
-    <div>Pages</div>
+    <div className='pages-container'>Pages</div>
   )
 }

@@ -16,10 +16,12 @@ export default function Home() {
       <div>
         <NavBar searchPokemon={searchPokemon}/>
       </div>
-      <div>
+      <div className='content-container'>
         <SideBar/>
-        <Cards/>
-        <Pages />
+        <div className='cards-page'>
+          <Cards/>
+          <Pages />
+        </div>
       </div>
     </div>
   )

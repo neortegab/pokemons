@@ -1,8 +1,10 @@
 .navbar-container{
-    border: 2px solid red;
     display: flex;
+    border-bottom: #2B3467 1px solid;
     gap: 0.5vw;
     background-color: #FCFFE7;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .navbar-container  img{
@@ -13,8 +15,8 @@
 .navbar-container > input{
     border-radius: 15px;
     border: 1px solid #2B3467;
-    width: 18vw;
-    max-height: 4vh;
+    width: calc(100% - 78vw);
+    padding: 0.5vh 0 0.5vh 1vw;
 }
 
 .navbar-container > button{
