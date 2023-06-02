@@ -6,7 +6,7 @@ export default function Cards(props) {
   const { pokemons } = props;
 
   function showPokemons(pokemons){
-    for(let i = 0; i < pokemons.length; i++){
+    for(let i = 0; i < pokemons.length && i < 8; i++){
       <Card key={pokemons[i].id} pokemon={pokemons[i]}/>
     }
   }
