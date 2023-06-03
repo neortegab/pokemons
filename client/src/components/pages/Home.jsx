@@ -1,28 +1,38 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import NavBar from './HomeComponents/NavBar'
 import SideBar from './HomeComponents/SideBar';
 import Cards from './HomeComponents/Cards';
 import Pages from './HomeComponents/Pages';
+import { useSelector, useDispatch } from 'react-redux';
+import { getPokemons } from '../../redux/actions/actions';
 import './HomeComponents/styles/Home.css'
 
 export default function Home() {
 
+  const { allPokemons } = useSelector(state => state);
+  
+  const dispatch = useDispatch();
+
   function searchPokemon(){
-    console.log("Searching pokemon");
+    //
   }
 
-  return (
-    <div className='home-container'>
-      <div>
-        <NavBar searchPokemon={searchPokemon}/>
-      </div>
-      <div className='content-container'>
+  useEffect(() => {
+    dispatch(getPokemons())
+  }, [dispatch])
+
+  return ( 
+  <div className='home-container'>
+    <div>
+     <NavBar searchPokemon={searchPokemon}/>
+    </div>
+    <div className='content-container'>
         <SideBar/>
-        <div className='cards-page'>
-          <Cards/>
-          <Pages />
-        </div>
+      <div className='cards-page'>
+        {allPokemons && <Cards pokemons={allPokemons}/>}
+        <Pages />
       </div>
     </div>
+  </div>
   )
 }

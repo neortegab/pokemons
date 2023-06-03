@@ -5,14 +5,9 @@ import './styles/Cards.css'
 export default function Cards(props) {
   const { pokemons } = props;
 
-  function showPokemons(pokemons){
-    for(let i = 0; i < pokemons.length && i < 8; i++){
-      <Card key={pokemons[i].id} pokemon={pokemons[i]}/>
-    }
-  }
   return (
     <div className='cards-container'>
-      {showPokemons(pokemons)}
+      {pokemons.map((pokemon, index) => {return index < 8 && <Card key={pokemon.id} pokemon={pokemon}/>})}
     </div>
   )
 }

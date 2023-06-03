@@ -7,11 +7,12 @@ const initialState = {
 }
 
 export default function reducer(state = initialState, action) {
-    switch (action.type) {
+    const {type, payload} = action;
+    switch (type) {
         case GET_POKEMONS:
             return {
                 ...state,
-                allPokemons: action.payload
+                allPokemons: payload
             }
         default:
             return state;

@@ -4,17 +4,14 @@ export default function Card(props) {
     const { pokemon } = props;
 
     function showTypes(){
-        const currentPokemonTypes = pokemon.types;
-        for(let i = 0; i < currentPokemonTypes.length; i++){
-            <p>{currentPokemonTypes[i].type.name}</p>
-        }
+        pokemon.types.map(type => <p>{type}</p>);        
     }
 
   return (
     <div>
         <p>{pokemon.id}</p>
         <h3>{pokemon.name}</h3>
-        <img src={pokemon.sprites.front_defaults} alt={pokemon.name} />
+        <img src={pokemon.image} alt={pokemon.name} />
         {showTypes()}
     </div>
   )
