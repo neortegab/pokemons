@@ -44,7 +44,7 @@ async function getPokemonByName(name){
                     attack: data.stats[1].base_stat,
                     defense: data.stats[2].base_stat,
                     speed: data.stats[5].base_stat,
-                    types: data.types.map(type => type.type.name),
+                    types: data.types.map(type => type.type),
                 };
                 pokemons.push(pokemon)
             }
