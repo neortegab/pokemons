@@ -3,7 +3,7 @@
 async function getPokemons() {
     try {
         let pokemons = [];
-        const request = await axios.get("https://pokeapi.co/api/v2/pokemon");  
+        const request = await axios.get("https://pokeapi.co/api/v2/pokemon/?limit=1281");  
         const pokemonsApi = request.data.results;
 
         for(let i = 0; i < pokemonsApi.length; i++) {
