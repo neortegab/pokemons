@@ -1,9 +1,11 @@
 import {
-    GET_POKEMONS
+    GET_POKEMONS,
+    CHANGE_PAGE
 } from '../actions/types';
 
 const initialState = {
-    allPokemons: []
+    allPokemons: [],
+    pageNumber: 1
 }
 
 export default function reducer(state = initialState, action) {
@@ -14,6 +16,8 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 allPokemons: payload
             }
+        case CHANGE_PAGE:
+            return {...state, pageNumber: payload};
         default:
             return state;
     }

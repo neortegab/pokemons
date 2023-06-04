@@ -1,5 +1,6 @@
 import {
-    GET_POKEMONS
+    GET_POKEMONS,
+    CHANGE_PAGE
 } from './types';
 
 import axios from 'axios';
@@ -9,5 +10,12 @@ export const getPokemons = () => async dispatch => {
     dispatch({
         type: GET_POKEMONS,
         payload: res.data
+    });
+}
+
+export const changePage = (pageNumber) => async dispatch => {
+    dispatch({
+        type: CHANGE_PAGE,
+        payload: pageNumber
     });
 }
