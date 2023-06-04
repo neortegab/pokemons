@@ -18,6 +18,10 @@ export default function Pages() {
     }
   }, [allPokemons, totalPages]);
 
+  function handleBackToStart(){
+    dispatch(changePage(1));
+  }
+
   function handlePrevious(){
     dispatch(changePage(pageNumber - 1));
   }
@@ -33,20 +37,42 @@ export default function Pages() {
   return (
     <div className='pages-container'>
       {
+        (allPokemons && pageNumber > 1)
+        && <button onClick={handleBackToStart}>Back to Start</button>
+      }
+      {
         (allPokemons && pageNumber !== 1) 
           && <button onClick={handlePrevious}>Previous</button>
       }
       {
-        (allPokemons && 
+        (allPokemons 
+          && (pageNumber < (totalPages-6)) 
+          &&
           allPokemons.map((_, index) => 
             index < 4 && 
-            <button key={index} 
-            onClick={() => handleAnyPage(index+1)}>
-              {index+1}
+            <button key={pageNumber+index} 
+            onClick={() => handleAnyPage(pageNumber+(index))}>
+              {pageNumber+(index)}
             </button>
           ))
+      }
+      {
+        (allPokemons 
+          && (pageNumber > (totalPages-7))
+          && (pageNumber <= totalPages-4))
+          && allPokemons.map((_, index) =>
+            index <= (totalPages-pageNumber-3) &&
+            <button key={pageNumber+index} 
+            onClick={() => handleAnyPage(pageNumber+(index))}>
+              {pageNumber+(index)}
+            </button>
+        )
       } 
-      <p> . . . </p>
+      {
+        allPokemons 
+        && pageNumber < (totalPages-7) 
+        && <p> . . . </p>
+      }
       {
         (allPokemons && 
           allPokemons.map((_, index) => 
@@ -59,7 +85,7 @@ export default function Pages() {
       }
       {
         (allPokemons 
-          && (pageNumber < Math.floor((allPokemons.length/8)))) 
+          && (pageNumber < totalPages)) 
           && <button onClick={handleNext}>Next</button>
       }
     </div>

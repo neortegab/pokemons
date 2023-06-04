@@ -1,3 +1,8 @@
 .pages-container{
     margin: 0 25vw;
+    display: flex;  
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.3vw;
 }
