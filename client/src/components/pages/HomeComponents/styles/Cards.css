@@ -1,4 +1,9 @@
 .cards-container{
     margin: 1vh 2vw;
     padding: 0.5vh 1vw;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 2vh 6.8vw;
+    justify-content: space-evenly;
 }

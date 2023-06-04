@@ -1,0 +1,29 @@
+.pokemon-card-container{
+    display: flex;
+    background-color: #EB455F;
+    border: 2px solid #2B3467;
+    border-radius: 25px;
+    min-width: 14vw;
+    justify-content: center;
+}
+
+.pokemon-card-info{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+}
+
+.pokemon-card-info > h3{
+    margin: 0 1vw 0 0;
+}
+
+.pokemon-types-container{
+    display: flex;
+    flex-direction: row;
+    gap: 0.4vw;
+    margin: -0.9vh 1.2vw 0 0vw;
+    justify-content: space-around;
+}
