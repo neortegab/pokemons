@@ -12,7 +12,7 @@ export default function Card(props) {
           <img src={pokemon.image} alt={pokemon.name} />
         </div>
         <div className="pokemon-types-container">
-          {pokemon.types.map((type, index) => <p key={index}>{type}</p>)}
+          {pokemon.types.map((type, index) => <p key={index}>{type.name}</p>)}
         </div>
       </div>
     </div>
