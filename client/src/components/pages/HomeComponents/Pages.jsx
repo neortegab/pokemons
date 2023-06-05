@@ -7,12 +7,12 @@ export default function Pages() {
 
   const { allPokemons, pageNumber } = useSelector(state => state);
 
-  const [totalPages, setTotalPages] = useState((Math.ceil(allPokemons.length/12)));
+  const [totalPages, setTotalPages] = useState((Math.ceil(allPokemons.length/12)+1));
   
   const dispatch = useDispatch();
 
   useEffect(() => {
-    let newTotalPages = (Math.floor(allPokemons.length/12)); 
+    let newTotalPages = (Math.floor(allPokemons.length/12)+1); 
     if(totalPages !== newTotalPages){
       setTotalPages(newTotalPages);
     }
