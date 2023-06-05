@@ -3,7 +3,8 @@ import {
     GET_TYPES,
     CHANGE_PAGE,
     SEARCH_NAME,
-    FILTER_POKEMONS
+    FILTER_POKEMONS,
+    FILTER_POKEMONS_ORIGIN
 } from './types';
 
 import axios from 'axios';
@@ -43,5 +44,12 @@ export const filterPokemon = (type) => async dispatch => {
     dispatch({
         type: FILTER_POKEMONS,
         payload: type
+    });
+}
+
+export const filterPokemonOrigin = (origin) => async dispatch => {
+    dispatch({
+        type: FILTER_POKEMONS_ORIGIN,
+        payload: origin
     });
 }

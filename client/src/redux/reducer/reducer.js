@@ -3,6 +3,7 @@ import {
     GET_TYPES,
     CHANGE_PAGE,
     FILTER_POKEMONS,
+    FILTER_POKEMONS_ORIGIN,
     SEARCH_NAME
 } from '../actions/types';
 
@@ -37,6 +38,15 @@ export default function reducer(state = initialState, action) {
                     pokemon.types.map((type) => type.name).includes(payload)
                 )
             };
+        case FILTER_POKEMONS_ORIGIN:
+            switch(payload){
+                case "All":
+                    return {...state, pokemons: state.allPokemons};
+                case "Api":
+                    return {...state, pokemons: state.allPokemons.filter((pokemon) => pokemon.id * 0 === 0)};
+                default:
+                    return {...state, pokemons: state.allPokemons.filter((pokemon) => pokemon.id * 0 !== 0)};
+            }
         default:
             return state;
     }

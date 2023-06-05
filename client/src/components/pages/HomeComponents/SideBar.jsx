@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getTypes, filterPokemon } from '../../../redux/actions/actions'
+import { getTypes, filterPokemon, filterPokemonOrigin } from '../../../redux/actions/actions'
 import './styles/SideBar.css'
 
 export default function SideBar() {
@@ -15,9 +15,15 @@ export default function SideBar() {
     dispatch(filterPokemon(type));
   }
 
+  function handleFilterByOrigin(e){
+    e.preventDefault();
+    const origin = e.target.value;
+    dispatch(filterPokemonOrigin(origin));
+  }
+
   useEffect(() => {
     dispatch(getTypes());
-  },[])
+  },[dispatch])
 
   return (
     <div className='sidebar-container'>
@@ -33,7 +39,7 @@ export default function SideBar() {
         </div>
         <div>
           <h4>Created by</h4>
-          <select name="" id="">
+          <select onChange={(e) => handleFilterByOrigin(e)}>
             <option value="All">All</option>
             <option value="Api">Api</option>
             <option value="Database">Database</option>
