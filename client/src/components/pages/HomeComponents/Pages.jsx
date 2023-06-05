@@ -5,18 +5,18 @@ import './styles/Pages.css'
 
 export default function Pages() {
 
-  const { allPokemons, pageNumber } = useSelector(state => state);
+  const { pokemons, pageNumber } = useSelector(state => state);
 
-  const [totalPages, setTotalPages] = useState((Math.ceil(allPokemons.length/12)+1));
+  const [totalPages, setTotalPages] = useState((Math.ceil(pokemons.length/12)+1));
   
   const dispatch = useDispatch();
 
   useEffect(() => {
-    let newTotalPages = (Math.floor(allPokemons.length/12)+1); 
+    let newTotalPages = (Math.floor(pokemons.length/12)+1); 
     if(totalPages !== newTotalPages){
       setTotalPages(newTotalPages);
     }
-  }, [allPokemons, totalPages]);
+  }, [pokemons, totalPages]);
 
   function handleBackToStart(){
     dispatch(changePage(1));
@@ -37,19 +37,19 @@ export default function Pages() {
   return (
     <div className='pages-container'>
       {
-        (allPokemons && pageNumber > 1)
+        (pokemons && pageNumber > 1)
         && <button onClick={handleBackToStart}>Back to Start</button>
       }
       {
-        (allPokemons && pageNumber !== 1) 
+        (pokemons && pageNumber !== 1) 
           && <button onClick={handlePrevious}>Previous</button>
       }
       {
-        (allPokemons 
+        (pokemons 
           &&
           (pageNumber <= totalPages - 8)
           &&
-          allPokemons.map((_, index) => 
+          pokemons.map((_, index) => 
             (index < 4) && 
             <button key={pageNumber+index} 
             onClick={() => handleAnyPage(pageNumber+(index))}>
@@ -58,12 +58,12 @@ export default function Pages() {
           ))
       }
       {
-        (allPokemons 
+        (pokemons 
           &&
           (pageNumber > totalPages - 8 
             && pageNumber <= totalPages - 4)
           &&
-          allPokemons.map((_, index) => 
+          pokemons.map((_, index) => 
             (index < (totalPages-pageNumber-3)) && 
             <button key={pageNumber+index} 
             onClick={() => handleAnyPage(pageNumber+(index))}>
@@ -72,14 +72,15 @@ export default function Pages() {
           ))
       }
       {
-        allPokemons 
+        pokemons 
         && pageNumber < (totalPages-7) 
         && <p> . . . </p>
       }
       {
-        (allPokemons && 
-          allPokemons.map((_, index) => 
-            index < 4 && 
+        (pokemons && 
+          pokemons.map((_, index) => 
+            (index < 4 && (totalPages-(3-index) > 0)) 
+            && 
             <button key={totalPages-(3-index)} 
             onClick={() => handleAnyPage(totalPages-(3-index))}>
               {totalPages-(3-index)}
@@ -87,7 +88,7 @@ export default function Pages() {
           ))
       }
       {
-        (allPokemons 
+        (pokemons 
           && (pageNumber < totalPages)) 
           && <button onClick={handleNext}>Next</button>
       }

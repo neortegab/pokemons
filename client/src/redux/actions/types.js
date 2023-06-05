@@ -1,7 +1,9 @@
 const GET_POKEMONS = "GET_POKEMONS";
+const SEARCH_NAME = "SEARCH_NAME";
 const CHANGE_PAGE = "CHANGE_PAGE";
 
 module.exports = {
     GET_POKEMONS,
-    CHANGE_PAGE
+    CHANGE_PAGE,
+    SEARCH_NAME
 }

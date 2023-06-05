@@ -9,13 +9,9 @@ import './HomeComponents/styles/Home.css'
 
 export default function Home() {
 
-  const { allPokemons } = useSelector(state => state);
+  const { allPokemons, pokemons } = useSelector(state => state);
   
   const dispatch = useDispatch();
-
-  function searchPokemon(){
-    //
-  }
 
   useEffect(() => {
     dispatch(getPokemons())
@@ -24,12 +20,12 @@ export default function Home() {
   return ( 
   <div className='home-container'>
     <>
-     <NavBar searchPokemon={searchPokemon}/>
+     <NavBar searchPokemon/>
     </>
     <div className='content-container'>
         <SideBar/>
       <div className='cards-page'>
-        {allPokemons && <Cards pokemons={allPokemons}/>}
+        {allPokemons && <Cards pokemons={pokemons}/>}
         <Pages />
       </div>
     </div>
