@@ -13,13 +13,13 @@ export default function Cards(props) {
       {
         pokemons
         .slice( 
-          (pageNumber*8)-8
+          (pageNumber*12)-12
         , 
-          (pageNumber*8) 
+          (pageNumber*12) 
         )
         .map(
           (pokemon) =>    
-            <Card key={pokemon.id} pokemon={pokemon}/>
+            <Card key={pokemon.id} pokemonId={pokemon.id}/>
         )
       }
     </div>

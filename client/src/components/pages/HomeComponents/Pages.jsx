@@ -7,12 +7,12 @@ export default function Pages() {
 
   const { allPokemons, pageNumber } = useSelector(state => state);
 
-  const [totalPages, setTotalPages] = useState((Math.floor(allPokemons.length/8)));
+  const [totalPages, setTotalPages] = useState((Math.ceil(allPokemons.length/12)));
   
   const dispatch = useDispatch();
 
   useEffect(() => {
-    let newTotalPages = (Math.floor(allPokemons.length/8)); 
+    let newTotalPages = (Math.floor(allPokemons.length/12)); 
     if(totalPages !== newTotalPages){
       setTotalPages(newTotalPages);
     }
@@ -46,10 +46,11 @@ export default function Pages() {
       }
       {
         (allPokemons 
-          && (pageNumber < (totalPages-6)) 
+          &&
+          (pageNumber <= totalPages - 8)
           &&
           allPokemons.map((_, index) => 
-            index < 4 && 
+            (index < 4) && 
             <button key={pageNumber+index} 
             onClick={() => handleAnyPage(pageNumber+(index))}>
               {pageNumber+(index)}
@@ -58,16 +59,18 @@ export default function Pages() {
       }
       {
         (allPokemons 
-          && (pageNumber > (totalPages-7))
-          && (pageNumber <= totalPages-4))
-          && allPokemons.map((_, index) =>
-            index <= (totalPages-pageNumber-3) &&
+          &&
+          (pageNumber > totalPages - 8 
+            && pageNumber <= totalPages - 4)
+          &&
+          allPokemons.map((_, index) => 
+            (index < (totalPages-pageNumber-3)) && 
             <button key={pageNumber+index} 
             onClick={() => handleAnyPage(pageNumber+(index))}>
               {pageNumber+(index)}
             </button>
-        )
-      } 
+          ))
+      }
       {
         allPokemons 
         && pageNumber < (totalPages-7) 
