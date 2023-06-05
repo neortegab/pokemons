@@ -13,7 +13,6 @@ export default function NavBar() {
 
     function searchPokemon(name){
         dispatch(searchName(name));
-        setName('');
     }
 
     function checkErrors(e){

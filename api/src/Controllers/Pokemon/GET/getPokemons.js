@@ -1,6 +1,6 @@
 const { Pokemon } = require("../../../db.js");
 const axios = require("axios");
-const whosThatPokemon = "https://m.media-amazon.com/images/I/71WkWKFRSWL.png";
+const { whosThatPokemon } = require("./utils/whosThatPokemon.js");
 
 async function getPokemons() {
     try {
