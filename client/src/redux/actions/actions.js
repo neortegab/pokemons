@@ -4,7 +4,9 @@ import {
     CHANGE_PAGE,
     SEARCH_NAME,
     FILTER_POKEMONS,
-    FILTER_POKEMONS_ORIGIN
+    FILTER_POKEMONS_ORIGIN,
+    ORDER_POKEMONS_NAME,
+    ORDER_POKEMONS_ATTACK
 } from './types';
 
 import axios from 'axios';
@@ -51,5 +53,19 @@ export const filterPokemonOrigin = (origin) => async dispatch => {
     dispatch({
         type: FILTER_POKEMONS_ORIGIN,
         payload: origin
+    });
+}
+
+export const orderPokemonsByName = (order) => async dispatch => {
+    dispatch({
+        type: ORDER_POKEMONS_NAME,
+        payload: order
+    });
+}
+
+export const orderPokemonsByAttack = (order) => async dispatch => {
+    dispatch({
+        type: ORDER_POKEMONS_ATTACK,
+        payload: order
     });
 }

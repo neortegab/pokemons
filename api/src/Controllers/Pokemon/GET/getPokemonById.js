@@ -11,18 +11,27 @@ async function getPokemonById(id){
         if(id*0 != 0) return pokemonFromDb = await Pokemon.findByPk(id);
         else{
             const apiRequest = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
-            const pokemonFromApi = apiRequest.data;
-            const pokemon = {
-                id: pokemonFromApi.id,
-                name: pokemonFromApi.name,
-                image: pokemonFromApi.sprites.front_default || pokemonFromApi.sprites.other.home.front_default || whosThatPokemon,
-                hp: pokemonFromApi.stats[0].base_stat,
-                attack: pokemonFromApi.stats[1].base_stat,
-                defense: pokemonFromApi.stats[2].base_stat,
-                speed: pokemonFromApi.stats[5].base_stat,
-                height: pokemonFromApi.height,
-                weight: pokemonFromApi.weight,
-                types: pokemonFromApi.types.map((type) => type.type),
+            const { data } = response;
+            const { id, name, stats, height, weight, sprites, types } = data;
+            const hp = stats[0].base_stat;
+            const attack = stats[1].base_stat;
+            const defense = stats[2].base_stat;
+            const speed = stats[5].base_stat;
+            let pokemon = {
+                id,
+                name,
+                image: sprites.front_default 
+                || sprites.other.home.front_default 
+                || whosThatPokemon,
+                hp,
+                attack,
+                defense,
+                speed: speed || 0,
+                height: height || 0,
+                weight: weight || 0,
+                types: types.map((type) => {
+                    return type.type;
+                })
             }
             return pokemon;
         }

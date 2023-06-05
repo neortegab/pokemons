@@ -38,15 +38,23 @@ async function getPokemonByName(name){
         await Promise.all(promises).then((responses) => {
             responses.forEach((response) => {
                 const { data } = response;
-                const { id, name, height, weight, sprites, types } = data;
+                const { id, name, stats, height, weight, sprites, types } = data;
+                const hp = stats[0].base_stat;
+                const attack = stats[1].base_stat;
+                const defense = stats[2].base_stat;
+                const speed = stats[5].base_stat;
                 let pokemon = {
                     id,
                     name,
-                    height,
-                    weight,
                     image: sprites.front_default 
                     || sprites.other.home.front_default 
                     || whosThatPokemon,
+                    hp,
+                    attack,
+                    defense,
+                    speed: speed || 0,
+                    height: height || 0,
+                    weight: weight || 0,
                     types: types.map((type) => {
                         return type.type;
                     })

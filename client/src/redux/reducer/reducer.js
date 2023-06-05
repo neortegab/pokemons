@@ -4,8 +4,17 @@ import {
     CHANGE_PAGE,
     FILTER_POKEMONS,
     FILTER_POKEMONS_ORIGIN,
-    SEARCH_NAME
+    SEARCH_NAME,
+    ORDER_POKEMONS_ATTACK,
+    ORDER_POKEMONS_NAME
 } from '../actions/types';
+
+import {
+    orderPokemonsNameAscending,
+    orderPokemonsNameDescending,
+    orderPokemonsAttackAscending,
+    orderPokemonsAttackDescending
+} from './utils/utils';
 
 const initialState = {
     allPokemons: [],
@@ -46,6 +55,36 @@ export default function reducer(state = initialState, action) {
                     return {...state, pokemons: state.allPokemons.filter((pokemon) => pokemon.id * 0 === 0)};
                 default:
                     return {...state, pokemons: state.allPokemons.filter((pokemon) => pokemon.id * 0 !== 0)};
+            }
+        case ORDER_POKEMONS_NAME:
+            switch(payload){
+                case "D":
+                    return {
+                        ...state, 
+                        pokemons: state.pokemons
+                                    .sort((a,b)=> orderPokemonsNameDescending(a,b))
+                    };
+                default:
+                    return {
+                        ...state, 
+                        pokemons: state.pokemons
+                                    .sort((a,b)=> orderPokemonsNameAscending(a,b))
+                    };
+            }
+        case ORDER_POKEMONS_ATTACK:
+            switch(payload){
+                case "D":
+                    return {
+                        ...state, 
+                        pokemons: [...state.pokemons]
+                                    .sort((a,b)=> orderPokemonsAttackAscending(a,b))
+                    };
+                default:
+                    return {
+                        ...state, 
+                        pokemons: [...state.pokemons]
+                                    .sort((a,b)=> orderPokemonsAttackDescending(a,b))
+                    };
             }
         default:
             return state;
