@@ -23,9 +23,9 @@ export default function Home() {
 
   return ( 
   <div className='home-container'>
-    <div>
+    <>
      <NavBar searchPokemon={searchPokemon}/>
-    </div>
+    </>
     <div className='content-container'>
         <SideBar/>
       <div className='cards-page'>

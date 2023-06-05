@@ -1,5 +1,5 @@
 .cards-container{
-    margin: 1vh 2vw;
+    margin: 0 0 0.5vh 1vw;
     padding: 0.5vh 1vw;
     display: flex;
     flex-wrap: wrap;
