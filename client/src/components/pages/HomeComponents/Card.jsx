@@ -3,21 +3,7 @@ import axios from 'axios';
 import './styles/Card.css'
 
 export default function Card(props) {
-    const { pokemonId } = props;
-
-    const [pokemon, setPokemon] = useState({});
-
-    useEffect(() => {
-      async function obtainPokemon(){
-        await axios.get(`http://localhost:3001/pokemons/${pokemonId}`)
-        .then(res => {
-          const { data } = res;
-          setPokemon(data);
-        })
-      }
-      obtainPokemon();
-    }, [pokemonId]);
-
+    const { pokemon } = props;
   return (
     <div className='pokemon-card-container'>
       <div>

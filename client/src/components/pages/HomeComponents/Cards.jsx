@@ -19,7 +19,7 @@ export default function Cards(props) {
         )
         .map(
           (pokemon) =>    
-            <Card key={pokemon.id} pokemonId={pokemon.id}/>
+            <Card key={pokemon.id} pokemon={pokemon}/>
         )
       }
     </div>
