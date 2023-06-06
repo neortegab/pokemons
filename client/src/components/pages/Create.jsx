@@ -14,19 +14,18 @@ export default function Create() {
     speed: "",
     height: "",
     weight: "",
+    types: [],
   });
 
   const [errors, setErrors] = useState({});
 
-  const [selectedTypes, setTypes] = useState([]);
-
-  const { types } = useSelector((state) => state);
+  const allTypes = useSelector((state) => state.types);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!(types.length > 0)) dispatch(getTypes());
-  }, [dispatch, types]);
+    if (!(allTypes.length > 0)) dispatch(getTypes());
+  }, [dispatch, allTypes]);
 
   function handleInputChange(e) {
     e.preventDefault();
@@ -39,13 +38,12 @@ export default function Create() {
     e.preventDefault();
     const value = e.target.value;
     const type = { name: value };
-    setTypes([...selectedTypes, type]);
-    setInputs({ ...inputs, types: selectedTypes });
+    setInputs({ ...inputs, types: [...inputs.types, type] });
   }
 
   function resetTypes(e) {
     e.preventDefault();
-    setTypes([]);
+    setInputs({ ...inputs, types: [] });
   }
 
   function resetAll(e) {
@@ -59,15 +57,26 @@ export default function Create() {
       speed: "",
       height: "",
       weight: "",
+      types: [],
     });
-    setTypes([]);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
     setErrors(validation(inputs));
     if (!(Object.keys(errors).length > 0)) {
-      dispatch(createPokemon(inputs));
+      const pokemon = {
+        name: inputs.name,
+        image: inputs.image,
+        hp: inputs.hp,
+        attack: inputs.attack,
+        defense: inputs.defense,
+        speed: inputs.speed,
+        height: inputs.height,
+        weight: inputs.weight,
+        types: inputs.types,
+      };
+      dispatch(createPokemon(pokemon));
     }
   }
 
@@ -158,15 +167,15 @@ export default function Create() {
         <div>
           <label>Types: &#40;select at least 2&#41;</label>
           <select onChange={(e) => handleSelectedAType(e)}>
-            {types &&
-              types.map((type, index) => (
+            {allTypes &&
+              allTypes.map((type, index) => (
                 <option key={index} name="name">
                   {type.name}
                 </option>
               ))}
           </select>
-          {selectedTypes &&
-            selectedTypes.map((type, index) => <p key={index}>{type.name}</p>)}
+          {inputs?.types &&
+            inputs.types?.map((type, index) => <p key={index}>{type.name}</p>)}
           <button onClick={(e) => resetTypes(e)}>Reset</button>
           {errors?.types && <p>{errors.types}</p>}
         </div>

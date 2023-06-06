@@ -72,9 +72,9 @@ async function createPokemon(pokemon) {
       hp: hp,
       attack: attack,
       defense: defense,
-      speed: speed,
-      height: height,
-      weight: weight,
+      speed: speed === "" ? null : speed,
+      height: height === "" ? null : height,
+      weight: weight === "" ? null : weight,
     });
     for (let i = 0; i < types.length; ++i) {
       const type = await Type.findOne({
@@ -84,7 +84,12 @@ async function createPokemon(pokemon) {
       });
       await newPokemon.addType(type);
     }
-    return newPokemon;
+    return await Pokemon.findOne({
+      where: {
+        id: newPokemon.id,
+      },
+      include: Type,
+    });
   } catch (error) {
     throw new Error("Error creating pokemon: " + error.message);
   }
