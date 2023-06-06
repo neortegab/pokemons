@@ -10,9 +10,9 @@ async function getPokemonById(id){
         // "number" * 0 = 0 | "45" * 0 = 0
         if(id*0 != 0) return pokemonFromDb = await Pokemon.findByPk(id);
         else{
-            const apiRequest = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
+            const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
             const { data } = response;
-            const { id, name, stats, height, weight, sprites, types } = data;
+            const { name, stats, height, weight, sprites, types } = data;
             const hp = stats[0].base_stat;
             const attack = stats[1].base_stat;
             const defense = stats[2].base_stat;

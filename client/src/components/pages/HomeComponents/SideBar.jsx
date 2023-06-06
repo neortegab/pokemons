@@ -8,12 +8,15 @@ import {
   orderPokemonsByAttack,
   reset
 } from '../../../redux/actions/actions'
+import { useLocation } from 'react-router-dom'
 import './styles/SideBar.css'
 
 export default function SideBar() {
   
   const { types } = useSelector(state => state)
   
+  const { pathname } = useLocation();
+
   const dispatch = useDispatch()
   
   useEffect(() => {
@@ -47,42 +50,50 @@ export default function SideBar() {
   function handleReset(){
     dispatch(reset());
   }
+
   return (
     <div className='sidebar-container'>
-        <h2>Filters</h2>
+      { 
+        pathname === '/home' &&
         <div>
-          <h4>Type</h4>
-          <select onChange={(e) => handleFilterByType(e)}>
-            <option value="All">All</option>
-            {types && types.map((type, index) => (
-              <option key={index} value={type.name}>{type.name}</option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <h4>Created by</h4>
-          <select onChange={(e) => handleFilterByOrigin(e)}>
-            <option value="All">All</option>
-            <option value="Api">Api</option>
-            <option value="Database">Database</option>
-          </select>
-        </div>
-        <h2>Order by</h2>
-        <div>
-          <h4>Name</h4>
-          <select onChange={(e) => handleOrderByName(e)}>
-            <option value="A">Ascending</option>
-            <option value="D">Descending</option>
-          </select>
-        </div>
-        <div>
-        <h4>Attack</h4>
-          <select onChange={(e) => handleOrderByAttack(e)}>
-            <option value="A">Ascending</option>
-            <option value="D">Descending</option>
-          </select>
-        </div>
-        <button onClick={() => handleReset()}>Reset</button>
+          <h2>Filters</h2>
+          <div>
+            <h4>Type</h4>
+            <select onChange={(e) => handleFilterByType(e)}>
+              <option value="All">All</option>
+              {types && types.map((type, index) => (
+                <option key={index} value={type.name}>{type.name}</option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <h4>Created by</h4>
+            <select onChange={(e) => handleFilterByOrigin(e)}>
+              <option value="All">All</option>
+              <option value="Api">Api</option>
+              <option value="Database">Database</option>
+            </select>
+          </div>
+          <h2>Order by</h2>
+          <div>
+            <h4>Name</h4>
+            <select onChange={(e) => handleOrderByName(e)}>
+              <option value="A">Ascending</option>
+              <option value="D">Descending</option>
+            </select>
+          </div>
+          <div>
+          <h4>Attack</h4>
+            <select onChange={(e) => handleOrderByAttack(e)}>
+              <option value="A">Ascending</option>
+              <option value="D">Descending</option>
+            </select>
+          </div>
+          <button onClick={() => handleReset()}>Reset</button>
+      </div>
+      }
+      {pathname !== "/home" && <button>Back home</button>}
+      <button>Create</button>
     </div>
   )
 }

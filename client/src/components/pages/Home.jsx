@@ -19,15 +19,15 @@ export default function Home() {
 
   return ( 
   <div className='home-container'>
-    <>
-     <NavBar searchPokemon/>
-    </>
+    <NavBar searchPokemon/>
     <div className='content-container'>
         <SideBar/>
-      <div className='cards-page'>
-        {allPokemons && <Cards pokemons={pokemons}/>}
-        <Pages />
-      </div>
+      {
+        <div className='cards-page'>
+          {allPokemons && <Cards pokemons={pokemons}/>}
+          <Pages />
+        </div>
+      }
     </div>
   </div>
   )
