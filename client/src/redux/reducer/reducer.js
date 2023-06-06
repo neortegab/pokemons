@@ -6,7 +6,8 @@ import {
     FILTER_POKEMONS_ORIGIN,
     SEARCH_NAME,
     ORDER_POKEMONS_ATTACK,
-    ORDER_POKEMONS_NAME
+    ORDER_POKEMONS_NAME,
+    RESET
 } from '../actions/types';
 
 import {
@@ -52,22 +53,22 @@ export default function reducer(state = initialState, action) {
                 case "All":
                     return {...state, pokemons: state.allPokemons};
                 case "Api":
-                    return {...state, pokemons: state.allPokemons.filter((pokemon) => pokemon.id * 0 === 0)};
+                    return {...state, pokemons: [...state.allPokemons].filter((pokemon) => pokemon.id * 0 === 0)};
                 default:
-                    return {...state, pokemons: state.allPokemons.filter((pokemon) => pokemon.id * 0 !== 0)};
+                    return {...state, pokemons: [...state.allPokemons].filter((pokemon) => pokemon.id * 0 !== 0)};
             }
         case ORDER_POKEMONS_NAME:
             switch(payload){
                 case "D":
                     return {
                         ...state, 
-                        pokemons: state.pokemons
+                        pokemons: [...state.pokemons]
                                     .sort((a,b)=> orderPokemonsNameDescending(a,b))
                     };
                 default:
                     return {
                         ...state, 
-                        pokemons: state.pokemons
+                        pokemons: [...state.pokemons]
                                     .sort((a,b)=> orderPokemonsNameAscending(a,b))
                     };
             }
@@ -86,6 +87,8 @@ export default function reducer(state = initialState, action) {
                                     .sort((a,b)=> orderPokemonsAttackDescending(a,b))
                     };
             }
+        case RESET:
+            return {...state, pokemons: [...state.allPokemons]};
         default:
             return state;
     }

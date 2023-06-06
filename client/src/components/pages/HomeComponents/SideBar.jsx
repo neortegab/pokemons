@@ -5,7 +5,8 @@ import {
   filterPokemon, 
   filterPokemonOrigin,
   orderPokemonsByName,
-  orderPokemonsByAttack
+  orderPokemonsByAttack,
+  reset
 } from '../../../redux/actions/actions'
 import './styles/SideBar.css'
 
@@ -43,6 +44,9 @@ export default function SideBar() {
     dispatch(orderPokemonsByAttack(order));
   }
 
+  function handleReset(){
+    dispatch(reset());
+  }
   return (
     <div className='sidebar-container'>
         <h2>Filters</h2>
@@ -78,6 +82,7 @@ export default function SideBar() {
             <option value="D">Descending</option>
           </select>
         </div>
+        <button onClick={() => handleReset()}>Reset</button>
     </div>
   )
 }

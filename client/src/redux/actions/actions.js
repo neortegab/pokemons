@@ -6,7 +6,8 @@ import {
     FILTER_POKEMONS,
     FILTER_POKEMONS_ORIGIN,
     ORDER_POKEMONS_NAME,
-    ORDER_POKEMONS_ATTACK
+    ORDER_POKEMONS_ATTACK,
+    RESET
 } from './types';
 
 import axios from 'axios';
@@ -67,5 +68,11 @@ export const orderPokemonsByAttack = (order) => async dispatch => {
     dispatch({
         type: ORDER_POKEMONS_ATTACK,
         payload: order
+    });
+}
+
+export const reset = () => async dispatch => {
+    dispatch({
+        type: RESET
     });
 }
