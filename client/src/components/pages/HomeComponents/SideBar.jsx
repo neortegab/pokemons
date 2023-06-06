@@ -1,69 +1,70 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { 
-  getTypes, 
-  filterPokemon, 
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getTypes,
+  filterPokemon,
   filterPokemonOrigin,
   orderPokemonsByName,
   orderPokemonsByAttack,
-  reset
-} from '../../../redux/actions/actions'
-import { useLocation } from 'react-router-dom'
-import './styles/SideBar.css'
+  reset,
+} from "../../../redux/actions/actions";
+import { useLocation } from "react-router-dom";
+import "./styles/SideBar.css";
 
 export default function SideBar() {
-  
-  const { types } = useSelector(state => state)
-  
+  const { types } = useSelector((state) => state);
+
   const { pathname } = useLocation();
 
-  const dispatch = useDispatch()
-  
-  useEffect(() => {
-    dispatch(getTypes());
-  },[dispatch])
+  const dispatch = useDispatch();
 
-  function handleFilterByType(e){
+  useEffect(() => {
+    if (!(types.length > 0)) dispatch(getTypes());
+  }, [dispatch, types]);
+
+  function handleFilterByType(e) {
     e.preventDefault();
     const type = e.target.value;
     dispatch(filterPokemon(type));
   }
 
-  function handleFilterByOrigin(e){
+  function handleFilterByOrigin(e) {
     e.preventDefault();
     const origin = e.target.value;
     dispatch(filterPokemonOrigin(origin));
   }
 
-  function handleOrderByName(e){
+  function handleOrderByName(e) {
     e.preventDefault();
     const order = e.target.value;
     dispatch(orderPokemonsByName(order));
   }
 
-  function handleOrderByAttack(e){
+  function handleOrderByAttack(e) {
     e.preventDefault();
     const order = e.target.value;
     dispatch(orderPokemonsByAttack(order));
   }
 
-  function handleReset(){
+  function handleReset() {
     dispatch(reset());
   }
 
   return (
-    <div className='sidebar-container'>
-      { 
-        pathname === '/home' &&
+    <div className="sidebar-container">
+      {pathname === "/home" && (
         <div>
           <h2>Filters</h2>
           <div>
             <h4>Type</h4>
             <select onChange={(e) => handleFilterByType(e)}>
               <option value="All">All</option>
-              {types && types.map((type, index) => (
-                <option key={index} value={type.name}>{type.name}</option>
-              ))}
+              {types &&
+                types.map((type, index) => (
+                  <option key={index} value={type.name}>
+                    {type.name}
+                  </option>
+                ))}
             </select>
           </div>
           <div>
@@ -83,17 +84,17 @@ export default function SideBar() {
             </select>
           </div>
           <div>
-          <h4>Attack</h4>
+            <h4>Attack</h4>
             <select onChange={(e) => handleOrderByAttack(e)}>
               <option value="A">Ascending</option>
               <option value="D">Descending</option>
             </select>
           </div>
           <button onClick={() => handleReset()}>Reset</button>
-      </div>
-      }
+        </div>
+      )}
       {pathname !== "/home" && <button>Back home</button>}
       <button>Create</button>
     </div>
-  )
+  );
 }
