@@ -79,9 +79,20 @@ export const reset = () => async (dispatch) => {
 };
 
 export const createPokemon = (pokemon) => async (dispatch) => {
-  const res = await axios.post("http://localhost:3001/pokemons/", pokemon);
+  let payload = {};
+  await axios
+    .post("http://localhost:3001/pokemons/", pokemon)
+    .then((res) => {
+      payload = res.data;
+      alert("Pokemon succesfully created!");
+    })
+    .catch((err) => {
+      console.log(err);
+      const { message } = err.response.data;
+      alert("There was an error creating the pokemon: " + message);
+    });
   dispatch({
     type: CREATE_POKEMON,
-    payload: res.data,
+    payload,
   });
 };
