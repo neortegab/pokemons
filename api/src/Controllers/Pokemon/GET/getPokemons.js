@@ -1,4 +1,4 @@
-const { Pokemon } = require("../../../db.js");
+const { Pokemon, Type } = require("../../../db.js");
 const axios = require("axios");
 const { whosThatPokemon } = require("./utils/whosThatPokemon.js");
 
@@ -6,8 +6,12 @@ async function getPokemons() {
   try {
     let pokemons = [];
 
-    const pokemonsFromDb = await Pokemon.findAll();
-    pokemons.concat(pokemonsFromDb);
+    const pokemonsFromDb = await Pokemon.findAll({ include: Type });
+
+    for (let i = 0; i < pokemonsFromDb.length; i++) {
+      const pokemon = pokemonsFromDb[i].dataValues;
+      pokemons.push(pokemon);
+    }
 
     let promises = [];
     await axios

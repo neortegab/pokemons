@@ -1,4 +1,4 @@
-const { Pokemon } = require("../../../db.js");
+const { Pokemon, Type } = require("../../../db.js");
 const { Op } = require("sequelize");
 const axios = require("axios");
 const { whosThatPokemon } = require("./utils/whosThatPokemon.js");
@@ -21,6 +21,7 @@ async function getPokemonByName(name) {
           [Op.iLike]: `%${name}%`,
         },
       },
+      include: Type,
     });
 
     let pokemons = [];

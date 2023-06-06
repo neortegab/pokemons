@@ -1,5 +1,6 @@
 import {
   GET_POKEMONS,
+  CREATE_POKEMON,
   GET_TYPES,
   CHANGE_PAGE,
   FILTER_POKEMONS,
@@ -32,6 +33,12 @@ export default function reducer(state = initialState, action) {
         ...state,
         allPokemons: payload,
         pokemons: payload,
+      };
+    case CREATE_POKEMON:
+      return {
+        ...state,
+        pokemons: [payload, ...state.pokemons],
+        allPokemons: [payload, ...state.allPokemons],
       };
     case CHANGE_PAGE:
       return { ...state, pageNumber: payload };

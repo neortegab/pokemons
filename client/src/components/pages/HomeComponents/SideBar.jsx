@@ -8,7 +8,7 @@ import {
   orderPokemonsByAttack,
   reset,
 } from "../../../redux/actions/actions";
-import { useLocation } from "react-router-dom";
+import { useLocation, NavLink } from "react-router-dom";
 import "./styles/SideBar.css";
 
 export default function SideBar() {
@@ -94,7 +94,9 @@ export default function SideBar() {
         </div>
       )}
       {pathname !== "/home" && <button>Back home</button>}
-      <button>Create</button>
+      <NavLink to="/pokemon/create">
+        <button>Create</button>
+      </NavLink>
     </div>
   );
 }

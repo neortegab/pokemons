@@ -1,5 +1,6 @@
 import {
   GET_POKEMONS,
+  CREATE_POKEMON,
   GET_TYPES,
   CHANGE_PAGE,
   SEARCH_NAME,
@@ -74,5 +75,13 @@ export const orderPokemonsByAttack = (order) => async (dispatch) => {
 export const reset = () => async (dispatch) => {
   dispatch({
     type: RESET,
+  });
+};
+
+export const createPokemon = (pokemon) => async (dispatch) => {
+  const res = await axios.post("http://localhost:3001/pokemons/", pokemon);
+  dispatch({
+    type: CREATE_POKEMON,
+    payload: res.data,
   });
 };
