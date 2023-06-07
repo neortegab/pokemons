@@ -1,3 +1,5 @@
+const regex = /[a-zA-Z0-9!@#$%^&*()_+-={}|:<>?,.;]/;
+
 export default function validateInfo(values) {
   let errors = {};
 
@@ -14,6 +16,8 @@ export default function validateInfo(values) {
     }
   }
 
+  if (name && regex.test(name))
+    errors.name = `The name can't contain special characters or numbers`;
   if (name.length > 30)
     errors.name = `The name can't be longer than 30 characters`;
   if (parseInt(hp) > 106 && parseInt(hp) < 1)

@@ -1,6 +1,4 @@
 import React, { useEffect } from "react";
-import NavBar from "./HomeComponents/NavBar";
-import SideBar from "./HomeComponents/SideBar";
 import Cards from "./HomeComponents/Cards";
 import Pages from "./HomeComponents/Pages";
 import { useSelector, useDispatch } from "react-redux";
@@ -18,16 +16,12 @@ export default function Home() {
 
   return (
     <div className="home-container">
-      <NavBar searchPokemon />
-      <div className="content-container">
-        <SideBar />
-        {
-          <div className="cards-page">
-            {allPokemons && <Cards pokemons={pokemons} />}
-            <Pages />
-          </div>
-        }
-      </div>
+      {
+        <>
+          {allPokemons && <Cards pokemons={pokemons} />}
+          <Pages />
+        </>
+      }
     </div>
   );
 }

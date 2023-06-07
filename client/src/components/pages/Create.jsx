@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getTypes, createPokemon } from "../../redux/actions/actions";
 import { NavLink } from "react-router-dom";
 import validation from "./utils/validation.js";
+import "./styles/Create.css";
 
 export default function Create() {
   const [inputs, setInputs] = useState({
@@ -81,9 +82,9 @@ export default function Create() {
   }
 
   return (
-    <div>
+    <div className="create-container">
       <h1>Create Your Own Pokemon!</h1>
-      <form>
+      <form className="form-container">
         <div>
           <label>Name: </label>
           <input

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { searchName } from "../../../redux/actions/actions";
+import { searchName } from "../redux/actions/actions";
 import { Link } from "react-router-dom";
 import "./styles/NavBar.css";
-import pokeballIcon from "../../../images/pokeball.ico";
+import pokeballIcon from "../images/pokeball.ico";
 
 export default function NavBar() {
   const [name, setName] = useState("");

@@ -7,7 +7,7 @@ import {
   orderPokemonsByName,
   orderPokemonsByAttack,
   reset,
-} from "../../../redux/actions/actions";
+} from "../redux/actions/actions";
 import { useLocation, NavLink } from "react-router-dom";
 import "./styles/SideBar.css";
 

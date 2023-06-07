@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../styles/Landing.css";
-import bulbasaur from "../../images/bulb.png";
-import charmander from "../../images/charman.png";
-import squirtle from "../../images/squirt.png";
-import logo from "../../images/pokemon_logo.png";
+import "./styles/Landing.css";
+import bulbasaur from "../images/bulb.png";
+import charmander from "../images/charman.png";
+import squirtle from "../images/squirt.png";
+import logo from "../images/pokemon_logo.png";
 
 export default function Landing() {
   return (
