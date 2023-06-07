@@ -25,11 +25,6 @@ export default function PokemonDetails(props) {
           <InputType attribute="Weight" value={pokemon.weight} />
         </>
       )}
-      <h3>Types: </h3>
-      <div className="detail-types-container">
-        {pokemon &&
-          pokemon?.types?.map((type, index) => <p key={index}>{type.name}</p>)}
-      </div>
     </div>
   );
 }

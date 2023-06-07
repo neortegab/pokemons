@@ -10,6 +10,12 @@ export default function PokemonInfo(props) {
       <PokemonDetails pokemon={pokemon} />
       <div className="detail-image-container">
         <img src={pokemon && pokemon.image} alt={pokemon.name} />
+        <div className="detail-types-container">
+          {pokemon &&
+            pokemon?.types?.map((type, index) => (
+              <p key={index}>{type.name}</p>
+            ))}
+        </div>
       </div>
     </div>
   );
