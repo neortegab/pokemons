@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import FormInput from "./CreateComponents/FormInput";
 import FormSelector from "./CreateComponents/FormSelector";
+import Button from "../Button";
 import { useSelector, useDispatch } from "react-redux";
 import { getTypes, createPokemon } from "../../redux/actions/actions";
-import { NavLink } from "react-router-dom";
 import validation from "./utils/validation.js";
 import "./styles/Create.css";
 
@@ -87,9 +87,6 @@ export default function Create() {
 
   return (
     <div className="create-container">
-      <NavLink className="back-home-button" to="/home">
-        <button>Back to Home</button>
-      </NavLink>
       <h1>Create Your Own Pokemon!</h1>
       <form className="form-container">
         <FormInput
@@ -156,8 +153,8 @@ export default function Create() {
           error={errors.types}
         />
         <div className="form-container-buttons">
-          <button onClick={(e) => resetAll(e)}>Clear</button>
-          <button onClick={(e) => handleSubmit(e)}>Create Pokemon</button>
+          <Button text="Clear" onClick={(e) => resetAll(e)} />
+          <Button text="Create Pokemon" onClick={(e) => handleSubmit(e)} />
         </div>
       </form>
     </div>

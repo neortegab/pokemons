@@ -1,0 +1,16 @@
+.pokemon-button {
+  border-radius: 15px;
+  border: 1px solid #2b3467;
+  background-color: #eb455f;
+  color: white;
+  font-weight: bold;
+  padding: 10px 13px;
+  max-width: 100%;
+}
+
+.pokemon-button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: #eb455f;
+  font-weight: bold;
+}

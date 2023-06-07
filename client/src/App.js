@@ -14,7 +14,11 @@ function App() {
   return (
     <div className="App">
       <div className="app-navbar">{pathname !== "/" && <NavBar />}</div>
-      {pathname !== "/" && <SideBar />}
+      {pathname !== "/" && (
+        <div className="app-sidebar">
+          <SideBar />
+        </div>
+      )}
       <Switch>
         <Route exact path="/">
           <Landing />

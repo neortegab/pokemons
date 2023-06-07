@@ -1,7 +1,45 @@
-.sidebar-container{
-    background-color: #FCFFE7;
-    margin: 0 0.75vw 0 0.75vw;
-    padding: 1vh 3vw;
-    border-radius: 12px;
-    border: 1px solid #2B3467;
+.sidebar-container {
+  background-color: #fcffe7;
+  margin: 0 0.9vw 0 0.9vw;
+  padding: 1vh 3vw;
+  border-radius: 12px;
+  border: 1px solid #2b3467;
+}
+
+.sidebar-filters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1vh;
+}
+
+.sidebar-filters h2 {
+  margin: unset;
+  margin-top: 1vh;
+}
+
+.sidebar-filter-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: stretch;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.sidebar-filter-container > select {
+  border-radius: 15px;
+  padding: 0.5vh 1vw;
+  width: 100%;
+}
+
+.sidebar-filter-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 0.5vw;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  margin-top: 1vh;
 }

@@ -1,8 +1,8 @@
 .pokemon-card-navlink {
   text-decoration: none;
   color: #fcffe7;
-  min-width: 16vw;
-  max-width: 22vw;
+  min-width: 20%;
+  max-width: 24%;
   max-height: 30vh;
 }
 

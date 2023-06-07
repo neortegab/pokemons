@@ -45,7 +45,10 @@ export default function reducer(state = initialState, action) {
     case SEARCH_NAME:
       return { ...state, pokemons: payload };
     case GET_TYPES:
-      return { ...state, types: payload };
+      return {
+        ...state,
+        types: payload.sort((a, b) => orderPokemonsNameAscending(a, b)),
+      };
     case FILTER_POKEMONS:
       return payload === "All"
         ? { ...state, pokemons: state.allPokemons }

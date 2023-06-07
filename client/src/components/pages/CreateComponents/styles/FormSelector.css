@@ -33,22 +33,6 @@
   min-width: 15vw;
 }
 
-.selector-options > button {
-  border-radius: 15px;
-  border: 1px solid #2b3467;
-  background-color: #eb455f;
-  color: white;
-  font-weight: bold;
-  padding: 0.5vh 1vw;
-}
-
-.selector-options > button:hover {
-  cursor: pointer;
-  background-color: white;
-  color: #eb455f;
-  font-weight: bold;
-}
-
 .selector-chosen-types {
   display: flex;
   flex-direction: row;

@@ -16,22 +16,6 @@
   text-decoration: none;
 }
 
-.back-home-button > button {
-  border-radius: 15px;
-  border: 1px solid #2b3467;
-  background-color: #eb455f;
-  color: white;
-  font-weight: bold;
-  padding: 0.5vh 1vw;
-}
-
-.back-home-button > button:hover {
-  cursor: pointer;
-  background-color: white;
-  color: #eb455f;
-  font-weight: bold;
-}
-
 .form-container {
   background-color: #fcffe7;
   display: flex;
@@ -45,26 +29,11 @@
 }
 
 .form-container-buttons {
+  margin-top: 2vh;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-content: space-around;
   justify-content: space-around;
   align-items: center;
-}
-
-.form-container-buttons > button {
-  border-radius: 15px;
-  border: 1px solid #2b3467;
-  background-color: #eb455f;
-  color: white;
-  font-weight: bold;
-  padding: 0.5vh 1vw;
-}
-
-.form-container-buttons > button:hover {
-  cursor: pointer;
-  background-color: white;
-  color: #eb455f;
-  font-weight: bold;
 }

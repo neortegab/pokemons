@@ -9,6 +9,7 @@ import {
   reset,
 } from "../redux/actions/actions";
 import { useLocation, NavLink } from "react-router-dom";
+import Button from "./Button";
 import "./styles/SideBar.css";
 
 export default function SideBar() {
@@ -53,9 +54,9 @@ export default function SideBar() {
   return (
     <div className="sidebar-container">
       {pathname === "/home" && (
-        <div>
+        <div className="sidebar-filters">
           <h2>Filters</h2>
-          <div>
+          <div className="sidebar-filter-container">
             <h4>Type</h4>
             <select onChange={(e) => handleFilterByType(e)}>
               <option value="All">All</option>
@@ -67,7 +68,7 @@ export default function SideBar() {
                 ))}
             </select>
           </div>
-          <div>
+          <div className="sidebar-filter-container">
             <h4>Created by</h4>
             <select onChange={(e) => handleFilterByOrigin(e)}>
               <option value="All">All</option>
@@ -76,27 +77,32 @@ export default function SideBar() {
             </select>
           </div>
           <h2>Order by</h2>
-          <div>
+          <div className="sidebar-filter-container">
             <h4>Name</h4>
             <select onChange={(e) => handleOrderByName(e)}>
               <option value="A">Ascending</option>
               <option value="D">Descending</option>
             </select>
           </div>
-          <div>
+          <div className="sidebar-filter-container">
             <h4>Attack</h4>
             <select onChange={(e) => handleOrderByAttack(e)}>
               <option value="A">Ascending</option>
               <option value="D">Descending</option>
             </select>
           </div>
-          <button onClick={() => handleReset()}>Reset</button>
+          <Button text="Reset" onClick={() => handleReset()} />
         </div>
       )}
-      {pathname !== "/home" && <button>Back home</button>}
-      <NavLink to="/pokemon/create">
-        <button>Create</button>
-      </NavLink>
+      <div className="sidebar-filter-buttons">
+        {pathname !== "/home" && (
+          <>
+            <NavLink to="/home">
+              <Button text="Back home" />
+            </NavLink>
+          </>
+        )}
+      </div>
     </div>
   );
 }

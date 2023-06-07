@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link, NavLink } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import Display from "./DetailComponents/Display";
 import "./styles/Detail.css";
+import Button from "../Button";
 
 export default function Detail() {
   const { id } = useParams();
@@ -38,20 +39,17 @@ export default function Detail() {
 
   return (
     <div className="detail-container">
-      <Link to={"/home"}>
-        <button>Back home</button>
-      </Link>
       <p className="detail-container-id">{pokemon && pokemon.id}</p>
       <Display pokemon={pokemon} />
-      <div>
+      <div className="detail-container-buttons">
         {pokemons && previousPokemon !== "" && (
           <NavLink to={`/pokemon/${previousPokemon}`}>
-            <button>Previous</button>
+            <Button text="<" />
           </NavLink>
         )}
         {pokemons && nextPokemon !== "" && (
           <NavLink to={`/pokemon/${nextPokemon}`}>
-            <button>Next</button>
+            <Button text=">" />
           </NavLink>
         )}
       </div>

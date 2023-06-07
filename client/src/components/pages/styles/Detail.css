@@ -16,3 +16,12 @@
   color: #2b3467;
   font-weight: bold;
 }
+
+.detail-container-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2vh;
+  gap: 1vw;
+}

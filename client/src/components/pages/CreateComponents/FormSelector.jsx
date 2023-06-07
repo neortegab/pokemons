@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../../Button";
 import "./styles/FormSelector.css";
 
 export default function FormSelector(props) {
@@ -17,7 +18,7 @@ export default function FormSelector(props) {
                 </option>
               ))}
           </select>
-          <button onClick={reset}>Reset</button>
+          <Button text="Reset" onClick={reset} />
         </div>
         <div className="selector-chosen-types">
           {types && types?.map((type, index) => <p key={index}>{type.name}</p>)}

@@ -12,7 +12,7 @@
 .navbar-container img {
   min-height: 6vh;
   max-height: 8vh;
-  min-width: 4vw;
+  min-width: 3vw;
   max-width: 6vw;
 }
 
@@ -21,21 +21,4 @@
   border: 1px solid #2b3467;
   width: calc(100% - 78vw);
   padding: 0.5vh 0 0.5vh 1vw;
-}
-
-.navbar-container > button {
-  border-radius: 15px;
-  border: 1px solid #2b3467;
-  background-color: #eb455f;
-  color: white;
-  font-weight: bold;
-  padding: 0.5vh 1vw;
-}
-
-.navbar-container > button:hover {
-  cursor: pointer;
-  background-color: white;
-  color: #eb455f;
-  font-weight: bold;
-  padding: 0.7vh 1vw;
 }

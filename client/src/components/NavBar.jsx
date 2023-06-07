@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { searchName } from "../redux/actions/actions";
-import { Link } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import Button from "./Button";
 import "./styles/NavBar.css";
 import pokeballIcon from "../images/pokeball.ico";
 
@@ -9,6 +10,8 @@ export default function NavBar() {
   const [name, setName] = useState("");
 
   const dispatch = useDispatch();
+
+  const { pathname } = useLocation();
 
   function searchPokemon(name) {
     dispatch(searchName(name));
@@ -22,11 +25,20 @@ export default function NavBar() {
 
   return (
     <div className="navbar-container">
-      <Link to="/home">
+      <NavLink to="/home">
         <img src={pokeballIcon} alt="navbar icon pokeball" />
-      </Link>
-      <input type="text" value={name} onChange={checkErrors} />
-      <button onClick={() => searchPokemon(name)}>Search</button>
+      </NavLink>
+      {pathname !== "/pokemon/create" && (
+        <NavLink to="/pokemon/create">
+          <Button text="Create" />
+        </NavLink>
+      )}
+      {pathname === "/home" && (
+        <>
+          <input type="text" value={name} onChange={checkErrors} />
+          <Button text="Search" onClick={() => searchPokemon(name)} />
+        </>
+      )}
     </div>
   );
 }

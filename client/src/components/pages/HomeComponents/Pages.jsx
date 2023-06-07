@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { changePage } from "../../../redux/actions/actions";
+import Button from "../../Button";
 import "./styles/Pages.css";
 
 export default function Pages() {
@@ -38,16 +39,17 @@ export default function Pages() {
   return (
     <div className="pages-container">
       {pokemons && pageNumber > 1 && (
-        <button onClick={handleBackToStart}>Back to Start</button>
+        <Button text="Back to Start" onClick={handleBackToStart} />
       )}
       {pokemons && pageNumber !== 1 && (
-        <button onClick={handlePrevious}>Previous</button>
+        <Button text="<" onClick={handlePrevious} />
       )}
       {pokemons && pageNumber >= 5 && (
         <>
-          <button onClick={() => handleAnyPage(pageNumber - 4)}>
-            {pageNumber - 4}
-          </button>
+          <Button
+            text={pageNumber - 4}
+            onClick={() => handleAnyPage(pageNumber - 4)}
+          />
           <p>. . .</p>
         </>
       )}
@@ -56,12 +58,15 @@ export default function Pages() {
         pokemons.map(
           (_, index) =>
             index < 4 && (
-              <button
-                key={pageNumber + index}
-                onClick={() => handleAnyPage(pageNumber + index)}
-              >
-                {pageNumber + index}
-              </button>
+              <>
+                {pageNumber + index === pageNumber && <p>&#62;</p>}
+                <Button
+                  text={pageNumber + index}
+                  key={pageNumber + index}
+                  onClick={() => handleAnyPage(pageNumber + index)}
+                />
+                {pageNumber + index === pageNumber && <p>&#60;</p>}
+              </>
             )
         )}
       {pokemons &&
@@ -70,12 +75,11 @@ export default function Pages() {
         pokemons.map(
           (_, index) =>
             index < totalPages - pageNumber - 3 && (
-              <button
+              <Button
+                text={pageNumber + index}
                 key={pageNumber + index}
                 onClick={() => handleAnyPage(pageNumber + index)}
-              >
-                {pageNumber + index}
-              </button>
+              />
             )
         )}
       {pokemons && pageNumber < totalPages - 7 && <p> . . . </p>}
@@ -84,16 +88,15 @@ export default function Pages() {
           (_, index) =>
             index < 4 &&
             totalPages - (3 - index) > 0 && (
-              <button
+              <Button
+                text={totalPages - (3 - index)}
                 key={totalPages - (3 - index)}
                 onClick={() => handleAnyPage(totalPages - (3 - index))}
-              >
-                {totalPages - (3 - index)}
-              </button>
+              />
             )
         )}
       {pokemons && pageNumber < totalPages && (
-        <button onClick={handleNext}>Next</button>
+        <Button text=">" onClick={handleNext} />
       )}
     </div>
   );
