@@ -2,7 +2,7 @@
   display: grid;
   grid-gap: 1.5vh;
   gap: 1.5vh;
-  grid-template-columns: 25% 75%;
+  grid-template-columns: 20% 80%;
   justify-items: stretch;
   justify-content: space-between;
   align-content: space-around;

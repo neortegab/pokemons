@@ -1,9 +1,9 @@
-.cards-container{
-    margin: 0 0 0.5vh 1vw;
-    padding: 0.5vh 1vw;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 2vh 6.8vw;
-    justify-content: space-evenly;
+.cards-container {
+  margin: 0 3.3vw 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  grid-gap: 2vh 6.8vw;
+  gap: 2vh 3.8vw;
+  justify-content: space-evenly;
 }

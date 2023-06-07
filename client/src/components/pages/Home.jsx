@@ -3,7 +3,7 @@ import Cards from "./HomeComponents/Cards";
 import Pages from "./HomeComponents/Pages";
 import { useSelector, useDispatch } from "react-redux";
 import { getPokemons } from "../../redux/actions/actions";
-import "./HomeComponents/styles/Home.css";
+import "./styles/Home.css";
 
 export default function Home() {
   const { allPokemons, pokemons } = useSelector((state) => state);

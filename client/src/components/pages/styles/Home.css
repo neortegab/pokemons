@@ -1,0 +1,6 @@
+.home-container {
+  display: grid;
+  grid-template-rows: 80% 20%;
+  width: 100%;
+  gap: 5vh;
+}
