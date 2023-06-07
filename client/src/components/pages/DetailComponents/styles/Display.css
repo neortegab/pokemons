@@ -1,0 +1,7 @@
+.detail-display-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-width: 80%;
+  align-items: center;
+}

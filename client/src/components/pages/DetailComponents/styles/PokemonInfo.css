@@ -1,0 +1,15 @@
+.detail-info-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: space-evenly;
+  min-width: 90%;
+}
+
+.detail-image-container > img {
+  max-height: 30vh;
+  min-height: 20vh;
+  width: auto;
+}

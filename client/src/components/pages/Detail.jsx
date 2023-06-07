@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import Display from "./DetailComponents/Display";
+import "./styles/Detail.css";
 
 export default function Detail() {
   const { id } = useParams();
@@ -35,41 +37,24 @@ export default function Detail() {
   }, [id, pokemons]);
 
   return (
-    <div>
-      <div>
-        <div>
-          <h1>Who's That Pokemon?!</h1>
-          <p>{pokemon && pokemon.id}</p>
-          <h2>{pokemon && pokemon.name}</h2>
-          <h4>HP: {pokemon && pokemon.hp}</h4>
-          <h4>ATTK: {pokemon && pokemon.attack}</h4>
-          <h4>DFS: {pokemon && pokemon.defense}</h4>
-          {pokemon && pokemon.speed && <h4>Speed: {pokemon.speed}</h4>}
-          {pokemon && pokemon.height && <h4>Height: {pokemon.height}</h4>}
-          {pokemon && pokemon.weight && <h4>Weight: {pokemon.weight}</h4>}
-          <h3>Types: </h3>
-          {pokemon &&
-            pokemon?.types?.map((type, index) => (
-              <p key={index}>{type.name}</p>
-            ))}
-        </div>
-        <div>
-          <img src={pokemon && pokemon.image} alt={pokemon.name} />
-        </div>
-      </div>
+    <div className="detail-container">
       <Link to={"/home"}>
         <button>Back home</button>
       </Link>
-      {pokemons && previousPokemon !== "" && (
-        <NavLink to={`/pokemon/${previousPokemon}`}>
-          <button>Previous</button>
-        </NavLink>
-      )}
-      {pokemons && nextPokemon !== "" && (
-        <NavLink to={`/pokemon/${nextPokemon}`}>
-          <button>Next</button>
-        </NavLink>
-      )}
+      <p className="detail-container-id">{pokemon && pokemon.id}</p>
+      <Display pokemon={pokemon} />
+      <div>
+        {pokemons && previousPokemon !== "" && (
+          <NavLink to={`/pokemon/${previousPokemon}`}>
+            <button>Previous</button>
+          </NavLink>
+        )}
+        {pokemons && nextPokemon !== "" && (
+          <NavLink to={`/pokemon/${nextPokemon}`}>
+            <button>Next</button>
+          </NavLink>
+        )}
+      </div>
     </div>
   );
 }

@@ -1,0 +1,18 @@
+.detail-container {
+  background-color: #fcffe7;
+  border: 1px solid #2b3467;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: space-around;
+  align-items: stretch;
+  margin-right: 3.3vw;
+}
+
+.detail-container-id {
+  font-size: x-small;
+  color: #2b3467;
+  font-weight: bold;
+}
