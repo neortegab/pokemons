@@ -5,3 +5,10 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.input-container input {
+  min-width: 25vw;
+  border-radius: 10px;
+  border: 1px solid #2b3467;
+  padding: 0.3vh 0.8vw;
+}

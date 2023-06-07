@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import FormInput from "./CreateComponents/FormInput";
+import FormSelector from "./CreateComponents/FormSelector";
 import { useSelector, useDispatch } from "react-redux";
 import { getTypes, createPokemon } from "../../redux/actions/actions";
 import { NavLink } from "react-router-dom";
@@ -40,7 +41,9 @@ export default function Create() {
     e.preventDefault();
     const value = e.target.value;
     const type = { name: value };
-    setInputs({ ...inputs, types: [...inputs.types, type] });
+    if (inputs.types.find((type) => type.name === value))
+      return alert(`Type ${value} already selected!`);
+    else setInputs({ ...inputs, types: [...inputs.types, type] });
   }
 
   function resetTypes(e) {
@@ -84,6 +87,9 @@ export default function Create() {
 
   return (
     <div className="create-container">
+      <NavLink className="back-home-button" to="/home">
+        <button>Back to Home</button>
+      </NavLink>
       <h1>Create Your Own Pokemon!</h1>
       <form className="form-container">
         <FormInput
@@ -142,27 +148,18 @@ export default function Create() {
           onChange={(e) => handleInputChange(e)}
           error={errors.weight}
         />
-        <div>
-          <label>Types: &#40;select at least 2&#41;</label>
-          <select onChange={(e) => handleSelectedAType(e)}>
-            {allTypes &&
-              allTypes.map((type, index) => (
-                <option key={index} name="name">
-                  {type.name}
-                </option>
-              ))}
-          </select>
-          {inputs?.types &&
-            inputs.types?.map((type, index) => <p key={index}>{type.name}</p>)}
-          <button onClick={(e) => resetTypes(e)}>Reset</button>
-          {errors?.types && <p>{errors.types}</p>}
+        <FormSelector
+          allTypes={allTypes}
+          types={inputs.types}
+          handleSelected={(e) => handleSelectedAType(e)}
+          reset={(e) => resetTypes(e)}
+          error={errors.types}
+        />
+        <div className="form-container-buttons">
+          <button onClick={(e) => resetAll(e)}>Clear</button>
+          <button onClick={(e) => handleSubmit(e)}>Create Pokemon</button>
         </div>
-        <button onClick={(e) => resetAll(e)}>Clear</button>
-        <button onClick={(e) => handleSubmit(e)}>Create Pokemon</button>
       </form>
-      <NavLink to="/home">
-        <button>Back to Home</button>
-      </NavLink>
     </div>
   );
 }

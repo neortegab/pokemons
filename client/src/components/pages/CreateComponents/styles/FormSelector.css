@@ -1,0 +1,60 @@
+.selector-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-between;
+  align-items: stretch;
+  gap: 0.8vh;
+}
+
+.selector-chosen-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  gap: 12vw;
+}
+
+.selector-options {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5vw;
+  margin-left: 0.6vw;
+}
+
+.selector-options > select {
+  border-radius: 10px;
+  padding: 0.3vh 0.5vw;
+  min-width: 15vw;
+}
+
+.selector-options > button {
+  border-radius: 15px;
+  border: 1px solid #2b3467;
+  background-color: #eb455f;
+  color: white;
+  font-weight: bold;
+  padding: 0.5vh 1vw;
+}
+
+.selector-options > button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: #eb455f;
+  font-weight: bold;
+}
+
+.selector-chosen-types {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  max-width: 20vw;
+  gap: 0.5vw;
+}
