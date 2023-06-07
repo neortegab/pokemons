@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import FormInput from "./CreateComponents/FormInput";
 import { useSelector, useDispatch } from "react-redux";
 import { getTypes, createPokemon } from "../../redux/actions/actions";
 import { NavLink } from "react-router-dom";
@@ -85,86 +86,62 @@ export default function Create() {
     <div className="create-container">
       <h1>Create Your Own Pokemon!</h1>
       <form className="form-container">
-        <div>
-          <label>Name: </label>
-          <input
-            name="name"
-            value={inputs.name}
-            placeholder="Pika pika!"
-            onChange={(e) => handleInputChange(e)}
-          ></input>
-          {errors?.name && <p>{errors.name}</p>}
-        </div>
-        <div>
-          <label>Image: </label>
-          <input
-            name="image"
-            value={inputs.image}
-            placeholder="https://pokemon-project.com/pokedex/img/sprite/EscarlataPurpura/2/025-sinnoh-cap.png"
-            onChange={(e) => handleInputChange(e)}
-          ></input>
-          {errors?.image && <p>{errors.image}</p>}
-        </div>
-        <div>
-          <label>Hit points: </label>
-          <input
-            name="hp"
-            value={inputs.hp}
-            placeholder="60"
-            onChange={(e) => handleInputChange(e)}
-          ></input>
-          {errors?.hp && <p>{errors.hp}</p>}
-        </div>
-        <div>
-          <label>Attack: </label>
-          <input
-            name="attack"
-            value={inputs.attack}
-            placeholder="45"
-            onChange={(e) => handleInputChange(e)}
-          ></input>
-          {errors?.attack && <p>{errors.attack}</p>}
-        </div>
-        <div>
-          <label>Defense: </label>
-          <input
-            name="defense"
-            value={inputs.defense}
-            placeholder="50"
-            onChange={(e) => handleInputChange(e)}
-          ></input>
-          {errors?.defense && <p>{errors.defense}</p>}
-        </div>
-        <div>
-          <label>Speed: </label>
-          <input
-            name="speed"
-            value={inputs.speed}
-            placeholder="35"
-            onChange={(e) => handleInputChange(e)}
-          ></input>
-          {errors?.speed && <p>{errors.speed}</p>}
-        </div>
-        <div>
-          <label>Height: </label>
-          <input
-            name="height"
-            value={inputs.height}
-            placeholder="12"
-            onChange={(e) => handleInputChange(e)}
-          ></input>
-          {errors?.height && <p>{errors.height}</p>}
-        </div>
-        <div>
-          <label>Weight: </label>
-          <input
-            name="weight"
-            value={inputs.weight}
-            placeholder="5"
-            onChange={(e) => handleInputChange(e)}
-          ></input>
-          {errors?.weight && <p>{errors.weight}</p>}
-        </div>
+        <FormInput
+          name="name"
+          value={inputs.name}
+          placeholder="Pika pika!"
+          onChange={(e) => handleInputChange(e)}
+          error={errors.name}
+        />
+        <FormInput
+          name="image"
+          value={inputs.image}
+          placeholder="https://pokemon-project.com/pokedex/img/sprite/EscarlataPurpura/2/025-sinnoh-cap.png"
+          onChange={(e) => handleInputChange(e)}
+          error={errors.image}
+        />
+        <FormInput
+          name="hp"
+          value={inputs.hp}
+          placeholder="60"
+          onChange={(e) => handleInputChange(e)}
+          error={errors.hp}
+        />
+        <FormInput
+          name="attack"
+          value={inputs.attack}
+          placeholder="45"
+          onChange={(e) => handleInputChange(e)}
+          error={errors.attack}
+        />
+        <FormInput
+          name="defense"
+          value={inputs.defense}
+          placeholder="50"
+          onChange={(e) => handleInputChange(e)}
+          error={errors.defense}
+        />
+        <FormInput
+          name="speed"
+          value={inputs.speed}
+          placeholder="35"
+          onChange={(e) => handleInputChange(e)}
+          error={errors.speed}
+        />
+        <FormInput
+          name="height"
+          value={inputs.height}
+          placeholder="12"
+          onChange={(e) => handleInputChange(e)}
+          error={errors.height}
+        />
+        <FormInput
+          name="weight"
+          value={inputs.weight}
+          placeholder="5"
+          onChange={(e) => handleInputChange(e)}
+          error={errors.weight}
+        />
         <div>
           <label>Types: &#40;select at least 2&#41;</label>
           <select onChange={(e) => handleSelectedAType(e)}>
