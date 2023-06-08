@@ -4,10 +4,12 @@
   grid-gap: 4%;
   gap: 4%;
   border-radius: 15px;
-  min-width: 45%;
+  min-width: 55%;
+  max-height: 2.7vh;
   justify-content: center;
   flex-wrap: nowrap;
   flex-direction: row;
+  padding: 4% 6%;
 }
 
 .type-button-container > button {

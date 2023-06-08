@@ -1,8 +1,8 @@
 .cards-container {
-  margin: 0 1vw 0 0;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   gap: 2vh 1.5vw;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  min-height: 100%;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import PokemonDetails from "./PokemonDetails";
+import Type from "../../Type";
 import "./styles/PokemonInfo.css";
 
 export default function PokemonInfo(props) {
@@ -13,7 +14,7 @@ export default function PokemonInfo(props) {
         <div className="detail-types-container">
           {pokemon &&
             pokemon?.types?.map((type, index) => (
-              <p key={index}>{type.name}</p>
+              <Type key={index} name={type.name} />
             ))}
         </div>
       </div>

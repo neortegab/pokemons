@@ -1,5 +1,4 @@
 .home-container {
   display: grid;
   grid-template-rows: 80% 20%;
-  gap: 3vh;
 }

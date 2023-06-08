@@ -44,7 +44,7 @@ export default function reducer(state = initialState, action) {
     case CHANGE_PAGE:
       return { ...state, pageNumber: payload };
     case SEARCH_NAME:
-      return { ...state, pokemons: payload };
+      return { ...state, pokemons: payload, pageNumber: 1 };
     case GET_TYPES:
       return {
         ...state,

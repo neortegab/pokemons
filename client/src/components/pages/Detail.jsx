@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import axios from "axios";
 import Display from "./DetailComponents/Display";
-import "./styles/Detail.css";
 import Button from "../Button";
+import "./styles/Detail.css";
+import axios from "axios";
 
 export default function Detail() {
   const { id } = useParams();

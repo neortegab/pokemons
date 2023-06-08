@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Type from "../../Type";
 import "./styles/Card.css";
 
 export default function Card(props) {
@@ -13,7 +14,7 @@ export default function Card(props) {
         </div>
         <div className="pokemon-types-container">
           {pokemon?.types?.map((type, index) => (
-            <p key={index}>{type.name}</p>
+            <Type key={index} name={type.name} />
           ))}
         </div>
       </div>

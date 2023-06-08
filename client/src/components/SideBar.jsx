@@ -81,7 +81,7 @@ export default function SideBar() {
           <h2>Filters</h2>
           <div className="sidebar-filter-container">
             <h4>Type</h4>
-            <div>
+            <div className="sidebar-typebuttons">
               {typeButtons &&
                 typeButtons.map((type, index) =>
                   type !== "All" ? (

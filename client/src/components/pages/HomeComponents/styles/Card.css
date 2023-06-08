@@ -3,7 +3,9 @@
   color: #fcffe7;
   min-width: 20%;
   max-width: 24%;
-  max-height: 30vh;
+  min-height: 20vh;
+  max-height: 20vh;
+  margin: 0 0 2vh 0;
 }
 
 .pokemon-card-container {
@@ -15,6 +17,7 @@
   border-radius: 25px;
   min-width: 50%;
   max-width: 90%;
+  min-height: 25%;
   justify-content: center;
 }
 
@@ -31,13 +34,12 @@
   max-width: 7vw;
   min-width: 3vw;
   height: auto;
+  overflow: hidden;
 }
 
 .pokemon-card-info > img {
-  max-width: 15vw;
-  min-width: 5vw;
+  max-width: 6vw;
   height: auto;
-  max-height: 10vh;
 }
 
 .pokemon-types-container {

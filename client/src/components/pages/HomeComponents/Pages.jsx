@@ -58,9 +58,9 @@ export default function Pages() {
         pokemons.map(
           (_, index) =>
             index < 4 && (
-              <>
+              <div className="pages-current-page" key={pageNumber + index}>
                 {pageNumber + index === pageNumber && (
-                  <p key={pageNumber + index + 1}>&#62;</p>
+                  <p key={"indicator" + pageNumber}>v</p>
                 )}
                 <Button
                   text={pageNumber + index}
@@ -68,9 +68,9 @@ export default function Pages() {
                   onClick={() => handleAnyPage(pageNumber + index)}
                 />
                 {pageNumber + index === pageNumber && (
-                  <p key={pageNumber + index + 2}>&#60;</p>
+                  <p key={"indicator" + pageNumber + index}>^</p>
                 )}
-              </>
+              </div>
             )
         )}
       {pokemons &&
@@ -79,11 +79,19 @@ export default function Pages() {
         pokemons.map(
           (_, index) =>
             index < totalPages - pageNumber - 3 && (
-              <Button
-                text={pageNumber + index}
-                key={pageNumber + index}
-                onClick={() => handleAnyPage(pageNumber + index)}
-              />
+              <div className="pages-current-page" key={pageNumber + index}>
+                {pageNumber + index === pageNumber && (
+                  <p key={"indicator" + pageNumber}>v</p>
+                )}
+                <Button
+                  text={pageNumber + index}
+                  key={pageNumber + index}
+                  onClick={() => handleAnyPage(pageNumber + index)}
+                />
+                {pageNumber + index === pageNumber && (
+                  <p key={"indicator" + pageNumber + index}>^</p>
+                )}
+              </div>
             )
         )}
       {pokemons && pageNumber < totalPages - 7 && <p> . . . </p>}
@@ -92,11 +100,15 @@ export default function Pages() {
           (_, index) =>
             index < 4 &&
             totalPages - (3 - index) > 0 && (
-              <Button
-                text={totalPages - (3 - index)}
-                key={totalPages - (3 - index)}
-                onClick={() => handleAnyPage(totalPages - (3 - index))}
-              />
+              <div key={pageNumber - 3 - index} className="pages-current-page">
+                {totalPages - (3 - index) === pageNumber && <p>v</p>}
+                <Button
+                  text={totalPages - (3 - index)}
+                  key={totalPages - (3 - index)}
+                  onClick={() => handleAnyPage(totalPages - (3 - index))}
+                />
+                {totalPages - (3 - index) === pageNumber && <p>^</p>}
+              </div>
             )
         )}
       {pokemons && pageNumber < totalPages && (

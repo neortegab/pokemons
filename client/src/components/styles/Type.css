@@ -4,9 +4,12 @@
   align-items: center;
   justify-content: space-evenly;
   border-radius: 15px;
-  min-width: 40%;
+  min-width: 30%;
+  max-height: 2.5vh;
+  padding: 3% 4%;
+  margin: 0.5vh;
 }
 
 #type-container > img {
-  max-height: 3vh;
+  max-height: 2vh;
 }
