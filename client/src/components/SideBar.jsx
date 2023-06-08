@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getTypes,
@@ -16,6 +16,8 @@ import "./styles/SideBar.css";
 export default function SideBar() {
   const { types } = useSelector((state) => state);
 
+  const [typeButtons, setTypeButtons] = useState([]);
+
   const { pathname } = useLocation();
 
   const dispatch = useDispatch();
@@ -24,10 +26,29 @@ export default function SideBar() {
     if (!(types.length > 0)) dispatch(getTypes());
   }, [dispatch, types]);
 
+  useEffect(() => {
+    if (typeButtons.length > 0) {
+      dispatch(filterPokemon(typeButtons));
+    } else {
+      dispatch(reset());
+    }
+  }, [dispatch, typeButtons]);
+
+  function addTypeButton(type) {
+    if (typeButtons.includes(type)) alert("Type already selected");
+    else setTypeButtons([...typeButtons, type]);
+  }
+
   function handleFilterByType(e) {
     e.preventDefault();
     const type = e.target.value;
-    dispatch(filterPokemon(type));
+    addTypeButton(type);
+  }
+
+  function handleCloseTypeButton(e) {
+    e.preventDefault();
+    const type = e.target.parentNode.firstChild.innerText;
+    setTypeButtons(typeButtons.filter((t) => t !== type));
   }
 
   function handleFilterByOrigin(e) {
@@ -49,6 +70,7 @@ export default function SideBar() {
   }
 
   function handleReset() {
+    setTypeButtons([]);
     dispatch(reset());
   }
 
@@ -56,10 +78,23 @@ export default function SideBar() {
     <div className="sidebar-container">
       {pathname === "/home" && (
         <div className="sidebar-filters">
-          <TypeButton name={"bug"} />
           <h2>Filters</h2>
           <div className="sidebar-filter-container">
             <h4>Type</h4>
+            <div>
+              {typeButtons &&
+                typeButtons.map((type, index) =>
+                  type !== "All" ? (
+                    <TypeButton
+                      key={index}
+                      name={type}
+                      onClick={(e) => handleCloseTypeButton(e)}
+                    />
+                  ) : (
+                    handleReset()
+                  )
+                )}
+            </div>
             <select onChange={(e) => handleFilterByType(e)}>
               <option value="All">All</option>
               {types &&

@@ -36,3 +36,11 @@ export const orderPokemonsAttackDescending = (pokemonA, pokemonB) => {
   else if (pokemonA.attack > pokemonB.attack) return -1;
   else return 0;
 };
+
+export const checkPokemonHasTypes = (pokemon, types) => {
+  let isType = false;
+  for (let i = 0; i < pokemon.types.length && !isType; i++) {
+    if (types.includes(pokemon.types[i].name)) isType = true;
+  }
+  return isType;
+};

@@ -59,13 +59,17 @@ export default function Pages() {
           (_, index) =>
             index < 4 && (
               <>
-                {pageNumber + index === pageNumber && <p>&#62;</p>}
+                {pageNumber + index === pageNumber && (
+                  <p key={pageNumber + index + 1}>&#62;</p>
+                )}
                 <Button
                   text={pageNumber + index}
                   key={pageNumber + index}
                   onClick={() => handleAnyPage(pageNumber + index)}
                 />
-                {pageNumber + index === pageNumber && <p>&#60;</p>}
+                {pageNumber + index === pageNumber && (
+                  <p key={pageNumber + index + 2}>&#60;</p>
+                )}
               </>
             )
         )}

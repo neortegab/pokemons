@@ -6,7 +6,7 @@ import { getPokemons } from "../../redux/actions/actions";
 import "./styles/Home.css";
 
 export default function Home() {
-  const { allPokemons, pokemons } = useSelector((state) => state);
+  const { allPokemons } = useSelector((state) => state);
 
   const dispatch = useDispatch();
 
@@ -18,7 +18,7 @@ export default function Home() {
     <div className="home-container">
       {
         <>
-          {allPokemons && <Cards pokemons={pokemons} />}
+          {allPokemons && <Cards />}
           <Pages />
         </>
       }

@@ -16,6 +16,7 @@ import {
   orderPokemonsNameDescending,
   orderPokemonsAttackAscending,
   orderPokemonsAttackDescending,
+  checkPokemonHasTypes,
 } from "./utils/utils";
 
 const initialState = {
@@ -54,8 +55,8 @@ export default function reducer(state = initialState, action) {
         ? { ...state, pokemons: state.allPokemons }
         : {
             ...state,
-            pokemons: state.pokemons.filter((pokemon) =>
-              pokemon.types.map((type) => type.name).includes(payload)
+            pokemons: [...state.allPokemons].filter((pokemon) =>
+              checkPokemonHasTypes(pokemon, payload)
             ),
           };
     case FILTER_POKEMONS_ORIGIN:
