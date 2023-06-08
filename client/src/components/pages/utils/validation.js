@@ -16,7 +16,7 @@ export default function validateInfo(values) {
     }
   }
 
-  if (name && regex.test(name))
+  if (name && !regex.test(name))
     errors.name = `The name can't contain special characters or numbers`;
   if (name.length > 30)
     errors.name = `The name can't be longer than 30 characters`;

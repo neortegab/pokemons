@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../../Button";
+import Type from "../../Type";
 import "./styles/FormSelector.css";
 
 export default function FormSelector(props) {
@@ -21,7 +22,8 @@ export default function FormSelector(props) {
           <Button text="Reset" onClick={reset} />
         </div>
         <div className="selector-chosen-types">
-          {types && types?.map((type, index) => <p key={index}>{type.name}</p>)}
+          {types &&
+            types?.map((type, index) => <Type key={index} name={type.name} />)}
         </div>
       </div>
       {error && <p>{error}</p>}

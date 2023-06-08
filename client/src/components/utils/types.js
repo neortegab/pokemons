@@ -38,6 +38,7 @@ const icons = {
   steel,
   unknown,
   water,
+  shadow: dark,
 };
 
 const colors = {
@@ -60,6 +61,7 @@ const colors = {
   steel: "#B8B8D0",
   unknown: "#68A090",
   water: "#6890F0",
+  shadow: "#705848",
 };
 
 export { icons, colors };
