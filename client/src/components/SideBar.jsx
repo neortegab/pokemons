@@ -10,6 +10,7 @@ import {
 } from "../redux/actions/actions";
 import { useLocation, NavLink } from "react-router-dom";
 import Button from "./Button";
+import TypeButton from "./SideBarComponents/TypeButton";
 import "./styles/SideBar.css";
 
 export default function SideBar() {
@@ -55,6 +56,7 @@ export default function SideBar() {
     <div className="sidebar-container">
       {pathname === "/home" && (
         <div className="sidebar-filters">
+          <TypeButton name={"bug"} />
           <h2>Filters</h2>
           <div className="sidebar-filter-container">
             <h4>Type</h4>
