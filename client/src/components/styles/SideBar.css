@@ -1,23 +1,28 @@
 .sidebar-container {
   background-color: #fcffe7;
-  margin: 0 0.9vw 0 0.9vw;
-  padding: 1vh 3vw;
+  margin: 0 0 0 1vw;
+  padding: 0.4vh 1vw;
   border-radius: 12px;
   border: 1px solid #2b3467;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-between;
 }
 
 .sidebar-filters {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   gap: 1vh;
+  width: calc(100% - 3%);
 }
 
 .sidebar-typebuttons {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
   gap: 1.5vh;
+  align-items: center;
 }
 
 .sidebar-filters h2 {
@@ -28,10 +33,6 @@
 .sidebar-filter-container {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  align-content: stretch;
-  justify-content: center;
-  align-items: stretch;
   gap: 0.7vh;
 }
 
