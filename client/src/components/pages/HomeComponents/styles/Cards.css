@@ -1,8 +1,8 @@
 .cards-container {
   display: flex;
   flex-wrap: wrap;
+  gap: 1vh 2vw;
   flex-direction: row;
-  gap: 2vh 1.5vw;
-  justify-content: space-around;
-  min-height: 100%;
+  align-items: center;
+  justify-content: space-evenly;
 }

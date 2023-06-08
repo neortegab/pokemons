@@ -1,5 +1,6 @@
 .pages-container {
-  margin: 0 15vw;
+  grid-row: 2 / 4;
+  margin: 1vh 1vw 0 0;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -11,6 +12,6 @@
 
 .pages-current-page {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 }

@@ -1,4 +1,8 @@
 .home-container {
+  grid-column: 2 / 2;
   display: grid;
   grid-template-rows: 80% 20%;
+  gap: 1vh;
+  align-items: center;
+  align-content: space-between;
 }

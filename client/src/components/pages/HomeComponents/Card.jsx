@@ -9,7 +9,7 @@ export default function Card(props) {
     <NavLink className="pokemon-card-navlink" to={`pokemon/${pokemon.id}`}>
       <div className="pokemon-card-container">
         <div className="pokemon-card-info">
-          <h3>{pokemon.name}</h3>
+          <h4>{pokemon.name}</h4>
           <img src={pokemon.image} alt={pokemon.name} />
         </div>
         <div className="pokemon-types-container">

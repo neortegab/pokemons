@@ -60,16 +60,13 @@ export default function Pages() {
             index < 4 && (
               <div className="pages-current-page" key={pageNumber + index}>
                 {pageNumber + index === pageNumber && (
-                  <p key={"indicator" + pageNumber}>v</p>
+                  <p key={"indicator" + pageNumber}>&#62;</p>
                 )}
                 <Button
                   text={pageNumber + index}
                   key={pageNumber + index}
                   onClick={() => handleAnyPage(pageNumber + index)}
                 />
-                {pageNumber + index === pageNumber && (
-                  <p key={"indicator" + pageNumber + index}>^</p>
-                )}
               </div>
             )
         )}
@@ -81,16 +78,13 @@ export default function Pages() {
             index < totalPages - pageNumber - 3 && (
               <div className="pages-current-page" key={pageNumber + index}>
                 {pageNumber + index === pageNumber && (
-                  <p key={"indicator" + pageNumber}>v</p>
+                  <p key={"indicator" + pageNumber}>&#62;</p>
                 )}
                 <Button
                   text={pageNumber + index}
                   key={pageNumber + index}
                   onClick={() => handleAnyPage(pageNumber + index)}
                 />
-                {pageNumber + index === pageNumber && (
-                  <p key={"indicator" + pageNumber + index}>^</p>
-                )}
               </div>
             )
         )}
@@ -101,13 +95,12 @@ export default function Pages() {
             index < 4 &&
             totalPages - (3 - index) > 0 && (
               <div key={pageNumber - 3 - index} className="pages-current-page">
-                {totalPages - (3 - index) === pageNumber && <p>v</p>}
+                {totalPages - (3 - index) === pageNumber && <p>&#62;</p>}
                 <Button
                   text={totalPages - (3 - index)}
                   key={totalPages - (3 - index)}
                   onClick={() => handleAnyPage(totalPages - (3 - index))}
                 />
-                {totalPages - (3 - index) === pageNumber && <p>^</p>}
               </div>
             )
         )}
