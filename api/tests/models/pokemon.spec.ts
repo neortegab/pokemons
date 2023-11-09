@@ -1,5 +1,5 @@
-const { Pokemon, conn } = require('../../src/db.js');
-const { expect } = require('chai');
+import { Sequelize } from "sequelize";
+import { expect } from "chai";
 
 describe('Pokemon model', () => {
   before(() => conn.authenticate()

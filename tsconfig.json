@@ -3,7 +3,9 @@
     "outDir": "./built",
     "allowJs": true,
     "target": "es5",
-    "alwaysStrict": true
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
   },
   "include": ["./api/**/*", "./client/**/*"]
 }
