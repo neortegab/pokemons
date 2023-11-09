@@ -1,8 +1,5 @@
-const server = require("./src/app.js");
-const { conn } = require("./src/db.js");
+import server from "./src/app";
 
-conn.sync({ force: true }).then(() => {
-  server.listen(3001, () => {
-    console.log("%s listening at 3001");
-  });
+server.listen(3001, () => {
+  console.log("Server listening at 3001");
 });
