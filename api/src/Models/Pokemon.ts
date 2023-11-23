@@ -1,6 +1,8 @@
 import { Table, Column, Model, DataType, BelongsToMany } from "sequelize-typescript";
 import Type from "./Type";
 import PokemonType from "./PokemonType";
+import TeamPokemon from "./TeamPokemon";
+import PokemonTeam from "./PokemonTeam";
 
 @Table
 class Pokemon extends Model {
@@ -24,6 +26,9 @@ class Pokemon extends Model {
 
   @BelongsToMany(() => Type, () => PokemonType)
   types!: Type[];
+
+  @BelongsToMany(() => PokemonTeam, () => TeamPokemon)
+  teams!: PokemonTeam[];
 }
 
 export default Pokemon;
