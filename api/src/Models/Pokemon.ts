@@ -1,7 +1,7 @@
 import { type Sequelize } from "sequelize";
 import { DataTypes } from "sequelize";
 
-export default (sequelize: Sequelize) => {
+export default (sequelize: Sequelize): void => {
   sequelize.define("pokemon", {
     id: {
       type: DataTypes.UUID,
