@@ -1,7 +1,7 @@
 import { Table, Column, Model, DataType, BelongsToMany } from "sequelize-typescript";
 import Type from "./Type";
-import PokemonType from "./PokemonType";
-import TeamPokemon from "./TeamPokemon";
+import PokemonType from "./RelationshipTables/PokemonType";
+import TeamPokemon from "./RelationshipTables/TeamPokemon";
 import PokemonTeam from "./PokemonTeam";
 
 @Table
@@ -14,6 +14,9 @@ class Pokemon extends Model {
 
   @Column
   level!: number;
+
+  @Column({ validate: { min: 0 } })
+  experience!: number;
 
   @Column({ validate: { min: 1 } })
   attack!: number;

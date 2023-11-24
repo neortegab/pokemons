@@ -14,7 +14,7 @@ export const db = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}
   logging: false,
 });
 
-db.addModels([path.join(__dirname, "/Models")]);
+db.addModels([path.join(__dirname, "/Models/**/*.ts")]);
 
 /* Server definition */
 

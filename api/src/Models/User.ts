@@ -1,5 +1,6 @@
 import { Table, Column, Model, DataType, HasMany } from "sequelize-typescript";
 import PokemonTeam from "./PokemonTeam";
+import Battle from "./Battle";
 
 @Table
 class User extends Model {
@@ -14,6 +15,9 @@ class User extends Model {
 
   @HasMany(() => PokemonTeam)
   pokemons!: PokemonTeam[];
+
+  @HasMany(() => Battle)
+  battles!: Battle[];
 }
 
 export default User;

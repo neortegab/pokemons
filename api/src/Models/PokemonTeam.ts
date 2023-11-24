@@ -1,7 +1,7 @@
 import { Table, Column, DataType, Model, BelongsTo, BelongsToMany, ForeignKey } from "sequelize-typescript";
 import User from "./User";
 import Pokemon from "./Pokemon";
-import TeamPokemon from "./TeamPokemon";
+import TeamPokemon from "./RelationshipTables/TeamPokemon";
 
 @Table
 class PokemonTeam extends Model {

@@ -1,6 +1,6 @@
 import { Table, Model, Column, ForeignKey, DataType } from "sequelize-typescript";
-import Pokemon from "./Pokemon";
-import PokemonTeam from "./PokemonTeam";
+import Pokemon from "../Pokemon";
+import PokemonTeam from "../PokemonTeam";
 
 @Table
 class TeamPokemon extends Model {
